@@ -1,12 +1,30 @@
-<style>
-    .site-header {
-        position: sticky;
-        top:0;
-        background: white;
-    }
-</style>
-<header class="site-header" role="banner">
+<header class="my-header" role="banner">
 
+  <div class="header-col-wrapper">
+      <div class="tags">
+        <button type="button">Category 1</button>
+        <a href="">apple</a>
+        <a href="">banana</a>
+        <a href="">orange</a>
+      </div>
+      <div class="tags">
+        <button type="button">Category 2</button>
+        <a href="">peach</a>
+        <a href="">maleon</a>
+        <a href="">pear</a>
+      </div>
+      <div class="tags">
+        <button type="button">Category 3</button>
+        <a href="">grape</a>
+        <a href="">pineapple</a>
+        <a href="">cherry</a>
+      </div>
+    </div>
+
+</header>
+
+<!--
+<header class="site-header my-header" role="banner">
   <div class="wrapper">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
@@ -34,4 +52,6 @@
       </nav>
     {%- endif -%}
   </div>
+
 </header>
+-->
