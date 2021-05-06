@@ -13,7 +13,7 @@
 .my-header {
   position: sticky;
   top: 0;
-  background: none;
+  background: white;
 }
 
 .header-col-wrapper {
@@ -39,7 +39,7 @@
     background: none;
     text-align: left;
     font-family: $base-font-family;
-    font-size: $base-font-size *1.5;
+    font-size: $base-font-size * 1.2;
     font-weight: bold;
     // font-weight: $base-font-weight;
     transition: all 500ms;
@@ -59,7 +59,7 @@
   }
 
   a {
-    font-size: $base-font-size *1.2;
+    font-size: $base-font-size * 1.2;
     padding-left: 5px;
     height: 0;
     transition: all 1s;
@@ -75,9 +75,80 @@
     flex-direction: column;
   }
 }
+/**
+ * Page content
+ */
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin: 0 0;
+}
+
+.my-content {
+  padding: 0 0;
+  flex: 1;
+}
+
+.main-vi {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-left: 4px solid black;
+  border-bottom: 4px solid black;
+
+  p {
+    font-size: 72px;
+    font-weight: 900;
+    text-align: center;
+    background: pink;
+  }
+}
+
+.gallary {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5px 5px;
+}
+
+.placeholder {
+  min-width: 400px;
+  min-height: 300px;
+  flex: 1;
+  background: pink;
+  margin: 5px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  // border-left: 4px solid black;
+  // border-bottom: 4px solid black;
+
+  p {
+    // background: pink;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    // background: pink;
+  }
+}
 
 .my-footer {
   position: sticky;
   bottom: 0;
   background: white;
+}
+
+/**
+ * Wrapper
+ */
+.my-wrapper {
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 0;
+  @extend %clearfix;
 }
