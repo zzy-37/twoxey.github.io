@@ -79,9 +79,19 @@
  * Page content
  */
 
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
 %vertical-rhythm {
   margin: 0 0;
 }
@@ -139,8 +149,17 @@ ul, ol, dl, figure,
   position: sticky;
   bottom: 0;
   background: white;
+  border-top: 4px solid black;
 }
 
+.my-footer-wrapper {
+  p {
+    // background: pink;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
 /**
  * Wrapper
  */
