@@ -39,7 +39,7 @@
     background: none;
     text-align: left;
     font-family: $base-font-family;
-    font-size: $base-font-size * 1.2;
+    @include relative-font-size(1.2);
     font-weight: bold;
     // font-weight: $base-font-weight;
     transition: all 500ms;
@@ -59,7 +59,7 @@
   }
 
   a {
-    font-size: $base-font-size * 1.2;
+    @include relative-font-size(1.2);
     padding-left: 5px;
     height: 0;
     transition: all 1s;
@@ -110,10 +110,13 @@ figure,
   border-bottom: 4px solid black;
 
   p {
-    font-size: 72px;
+    @include relative-font-size(4);
     font-weight: 900;
     text-align: center;
     background: pink;
+    @include media-query($on-palm) {
+      @include relative-font-size(3);
+    }
   }
 }
 
@@ -138,10 +141,15 @@ figure,
 
   p {
     // background: pink;
-    font-size: 36px;
+    @include relative-font-size(2);
     font-weight: bold;
     text-align: center;
     // background: pink;
+  }
+
+  @include media-query($on-palm) {
+    min-width: 200px;
+    min-height: 150px;
   }
 }
 
@@ -155,9 +163,12 @@ figure,
 .my-footer-wrapper {
   p {
     // background: pink;
-    font-size: 24px;
+    @include relative-font-size(1.5);
     font-weight: bold;
     text-align: center;
+    @include media-query($on-palm) {
+      @include relative-font-size(1);
+    }
   }
 }
 /**
