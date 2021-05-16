@@ -1,20 +1,37 @@
 ---
 layout: default
 ---
+<style>
+  .post-picture {
+    display: flex;
+    width: 200%;
+    margin-bottom: 2rem;
+    height: 30vh;
+  }
+
+  .post-picture div {
+    height: 100%;
+  } 
+  .post-picture div img{
+    height: 100%;
+  }
+</style>
 <article class="post">
+  <div class="post-picture">
+    {%- assign col = site.collections | where: "label", page.collection | first -%}
+    {%- for file in col.files -%}
+    <!-- <p>{{ file.name }}</p> -->
+    <div>
+      <img src="{{ file.name }}" alt="">
+    </div>
+    {%- endfor -%}
+  </div>
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.name -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.name }}</span></span>
-        • <span itemprop="major" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.major }}</span></span>
-        • <span itemprop="category" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.category }}</span></span>
-      {%- endif -%}</p>
+    • <a href=""><span>{{ page.name }}</span></a>
+    • <a href=""><span>{{ page.major }}</span></a>
+    • <a href=""><span>{{ page.category }}</span></a>
   </header>
 
   <div class="post-content">
