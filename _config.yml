@@ -37,7 +37,14 @@ plugins:
 
 collections:
   pages:
+    sort_by: name
     output: true
+
+defaults:
+  - scope:
+      path: "*/img"
+    values:
+      image: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
