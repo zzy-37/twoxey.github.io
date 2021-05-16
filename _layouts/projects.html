@@ -10,19 +10,29 @@ layout: default
   }
 
   .post-picture div {
-    height: 100%;
-  } 
-  .post-picture div img{
+    /* height: 100%; */
+    flex:0 0 auto;
+  }
+
+  .post-picture div video,
+  .post-picture div img {
     height: 100%;
   }
 </style>
 <article class="post">
   <div class="post-picture">
     {%- assign col = site.collections | where: "label", page.collection | first -%}
-    {%- for file in col.files -%}
-    <!-- <p>{{ file.name }}</p> -->
+    {%- assign files = col.files | where: "image", "true" |sort: "name" -%}
+    {%- for file in files -%}
     <div>
-      <img src="{{ file.name }}" alt="">
+      {% case file.extname %}
+        {% when ".mp4" %}
+          <video controls>
+            <source src="img/{{ file.name }}" type="video/mp4">
+          </video>
+      {% when ".jpg", ".png" %}
+          <img src="img/{{ file.name }}" alt="">
+      {% endcase %}
     </div>
     {%- endfor -%}
   </div>
