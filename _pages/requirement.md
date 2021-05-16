@@ -1,14 +1,14 @@
 ---
 layout: projects
 
-title: 文件要求（项目名称）
-name: 张三（姓名）
-major: 工业设计（专业）
-category : 智慧生活（分类）
+title: 项目文件提交指南
+name: 张三
+major: 工业设计
+category : 智慧生活
 
 ---
 
-## 项目介绍（纯文本）
+## 项目介绍（这是一个二级标题）
 
 在此处填写项目的介绍文字，使用纯文本编辑器进行编辑
 
@@ -18,16 +18,41 @@ category : 智慧生活（分类）
 
 使用`utf-8`编码保存文件
 
-**以上段落渲染页面如下**
+**更改此文件顶部的项目信息**
 
-![]()
+他们将会显示在你项目页面的顶部
 
+![screenshot1](screenshot1.png)
 
-想要尝试更复杂的版式的话，可以根据markdown文件格式自行尝试排版。
+**提交的文件夹的结构如下：**
+
+![screenshot](screenshot.png)
+
+windows下的项目文件夹：
+
+![screenshot2](screenshot2.png)
+
+### 如何提交项目图片（！！重要！！）
+
+- 请将需要提交的图片与视频保存在`img`文件夹内，它们将会用于项目图库的展示  
+- 在项目页面上这些图片将会按照该文件夹中**文件名的顺序排列**，**第一张图片将作为项目封面**，所以请注意图片文件的名称
+- 在此案例中 **`02.jpg`将会作为项目封面**，同时在**第二张图片的位置将会播放演示视频**
+- 将项目文件夹命名为**学号-姓名**，如**170001-张三**，并打包发送
+
+> 关于提交文件的格式：  
+> markdown 文件请使用纯文本编辑器使用 utf-8 编码进行保存，后缀名 .md 或 .markdown均可  
+> 图片可以接受的格式：.jpg .png，考虑到网络传输，分辨率尽量不要超过300ppi  
+> 视频可以接受的格式：h.264 编码的 .mp4 文件，同样考虑到网络传输，码率尽量不要大于10mbps，分辨率不要超过 1080p
 
 ___
 
+### 以上，最基本的项目文件编辑就完成了，如果你想要图文混排展示或尝试更复杂的版式的话，可以根据markdown文件格式自行尝试排版。
+
 **以下是一些常用markdown格式参考**
+
+**更加详细的教程可以参考[Markdown 教程 \| 菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)**
+
+___
 
 ### 使用`井号（#）`创建标题
 
@@ -129,31 +154,30 @@ ___
 
 ### 插入图片和链接
 
+使用`![图片描述](图片的链接)` 在文章当中插入图片
 
+感叹号`!`接方括号内的图片描述（可以任意填写，只是用来标识用），再接括号括起来的图片链接
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+> 注意：请填写图片正确的相对路径，如：  
+> 与此文档在同一文件夹下的`01.jpg`，其路径就是`01.jpg`  
+> 在`img`文件夹下的`04.jpg`，其路径则应当填写`img/04.jpg`
 
+**下图的markdown文本如下**
 
-Jekyll requires blog post files to be named according to the following format:
+```
+![try](01.jpg)
+```
 
-`YEAR-MONTH-DAY-title.MARKUP`
-
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
+> 它不会被显示在项目图库当中
 
 ![try](01.jpg)
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+**下图的markdown文本如下**
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+```
+![try](img/04.jpg)
+```
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+> 因为它被储存在`img`文件夹下，所以它会显示在页面顶部的项目图库中
+
+![try](img/04.jpg)
