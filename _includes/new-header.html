@@ -1,5 +1,9 @@
 <header class="my-header" role="banner">
-
+  <div class="wrapper">
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}" style="font-family: 'Secular One', sans-serif;">{{ site.title | escape }}</a>
+<!--
   <div class="header-col-wrapper">
       <div class="tags">
         <button type="button">Category 1</button>
@@ -20,7 +24,7 @@
         <a href="">cherry</a>
       </div>
     </div>
-
+-->
 </header>
 
 <!--

@@ -14,6 +14,9 @@
   position: sticky;
   top: 0;
   background: white;
+//  height: 2rem;
+  border-bottom: 1px solid black;
+  margin: 0 $spacing-unit;
 }
 
 .header-col-wrapper {
@@ -157,7 +160,8 @@
   position: sticky;
   bottom: 0;
   background: white;
-  border-top: 4px solid black;
+  border-top: 1px solid black;
+  margin: 0 $spacing-unit;
 }
 
 .my-footer-wrapper {
