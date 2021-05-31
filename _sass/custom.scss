@@ -102,6 +102,7 @@
 .my-content {
   padding: 0 0;
   flex: 1;
+  height: 0;
 }
 
 .main-vi {
@@ -169,7 +170,7 @@
     // background: pink;
     @include relative-font-size(1.5);
     font-weight: bold;
-    margin:0 0;
+    margin: 0 0;
     text-align: center;
     @include media-query($on-palm) {
       @include relative-font-size(1);
