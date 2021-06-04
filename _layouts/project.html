@@ -1,0 +1,55 @@
+---
+layout: default
+---
+<style>
+  .picture-wrapper {
+    overflow-x: scroll;
+    margin-bottom: 2rem;
+  }
+
+  .post-picture {
+    display: flex;
+    width: 200%;
+  }
+
+  .post-picture div {
+    height: 30vh;
+  }
+
+  .post-picture div video,
+  .post-picture div img {
+    height: 100%;
+  }
+</style>
+<article class="post">
+  <div class="picture-wrapper">
+    <div class="post-picture">
+      {%- assign col = site.collections | where: "label", page.collection | first -%}
+      {%- assign files = col.files | where: "image", "true" |sort: "name" -%}
+      {%- for file in files -%}
+      <div>
+        {% case file.extname %}
+        {% when ".mp4" %}
+        <video controls>
+          <source src="img/{{ file.name }}" type="video/mp4">
+        </video>
+        {% when ".jpg", ".png" %}
+        <img src="img/{{ file.name }}" alt="">
+        {% endcase %}
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    • <a href=""><span>{{ page.name }}</span></a>
+    • <a href=""><span>{{ page.major }}</span></a>
+    • <a href=""><span>{{ page.category }}</span></a>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</article>
