@@ -39,6 +39,9 @@ collections:
   pages:
     sort_by: name
     output: true
+  projects:
+    sort_by: name
+    output: true
 
 defaults:
   - scope:
