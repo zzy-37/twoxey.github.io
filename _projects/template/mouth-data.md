@@ -1,12 +1,13 @@
 ---
-layout: project2
+layout: projects
 
+number: 100000
 title: 口腔数据内容存储和调取工具
 name: 徐曼
 major: 工业设计
 category: 智慧生活
 email: xuman9999@126.com
-tutor: 刘震元
+supervisor: 刘震元
 
 ---
 

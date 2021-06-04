@@ -1,55 +1,40 @@
 ---
-layout: default
+layout: default2
 ---
-<style>
-  .picture-wrapper {
-    overflow-x: scroll;
-    margin-bottom: 2rem;
-  }
-
-  .post-picture {
-    display: flex;
-    width: 200%;
-  }
-
-  .post-picture div {
-    height: 30vh;
-  }
-
-  .post-picture div video,
-  .post-picture div img {
-    height: 100%;
-  }
-</style>
-<article class="post">
-  <div class="picture-wrapper">
-    <div class="post-picture">
-      {%- assign col = site.collections | where: "label", page.collection | first -%}
-      {%- assign files = col.files | where: "image", "true" |sort: "name" -%}
-      {%- for file in files -%}
-      <div>
-        {% case file.extname %}
-        {% when ".mp4" %}
-        <video controls>
-          <source src="img/{{ file.name }}" type="video/mp4">
-        </video>
-        {% when ".jpg", ".png" %}
-        <img src="img/{{ file.name }}" alt="">
-        {% endcase %}
-      </div>
-      {%- endfor -%}
+<main>
+    <div class="banner">
+        <img src="thumbnail.png" alt="">
     </div>
-  </div>
-
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    • <a href=""><span>{{ page.name }}</span></a>
-    • <a href=""><span>{{ page.major }}</span></a>
-    • <a href=""><span>{{ page.category }}</span></a>
-  </header>
-
-  <div class="post-content">
-    {{ content }}
-  </div>
-
-</article>
+    <div class="content">
+        <section class="title">
+            <span>{{ page.major }}</span>
+            <h1>{{ page.title }}</h1>
+        </section>
+        <section class="profile">
+            <img src="portrait.png" alt="">
+            <p><span>{{ page.name }}</span><br>
+            <br>
+            邮箱：{{ page.email }}<br>
+            指导老师：{{ page.supervisor }}<br>
+            个人作品：www.xumandesign.cn<br>
+            </p>
+        </section>
+        <section class="discription">
+            {{ content }}
+        </section>
+    </div>
+    <div class="display">
+        <!--{%- assign col = site.collections | where: "label", page.collection | first -%}
+        {%- assign files = col.files |sort: "name" -%}
+        {%- for image in files -%}
+        {%- if image.path contains 'img' -%}
+        <img src="img/{{ image.name }}" alt="">
+        {%- endif -%}
+        {%- endfor -%}-->
+        {%- for image in site.static_files -%}
+        {%- if image.path contains page.number -%}
+        <img src="{{ image.path }}" alt="">
+        {%- endif -%}
+        {%- endfor -%}
+    </div>
+</main>

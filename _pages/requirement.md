@@ -1,5 +1,5 @@
 ---
-layout: projects
+layout: project
 
 title: 项目文件提交指南
 name: 张三
