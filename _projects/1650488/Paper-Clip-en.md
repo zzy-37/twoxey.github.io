@@ -2,6 +2,9 @@
 layout: projects
 
 number: 1650488
+lang: en
+category: Circular Intergrowth
+
 title: S-Plantation——The Experiential Space Design of Starbucks Coffee Farm
 major: Environmental Design
 name: Chen Changxu

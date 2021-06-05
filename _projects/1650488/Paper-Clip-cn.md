@@ -2,6 +2,9 @@
 layout: projects
 
 number: 1650488
+lang: cn
+category: 循环共生
+
 title: 星之园——星巴克咖啡农庄体验空间设计
 major: 环境设计
 name: 陈昶旭
