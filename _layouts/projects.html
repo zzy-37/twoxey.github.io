@@ -3,7 +3,20 @@ layout: default2
 ---
 <main>
     <div class="banner">
-        <img src="thumbnail.jpg" alt="">
+        {%- assign col = site.collections | where: "label", page.collection | first -%}
+        {%- for file in col.files -%}
+        {%- if file.path contains page.number and file.basename == "video" -%}
+        {%- assign video = file -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {%- if video -%}
+        <video controls>
+            <source src="/projects/{{ page.number }}/{{ video.name }}" type="video/mp4">
+        </video>
+        {%- else -%}
+        <img src="/projects/1650488/thumbnail.jpg" alt="">
+        {%- endif -%}
     </div>
     <div class="content">
         <section class="title">
@@ -13,10 +26,10 @@ layout: default2
         <section class="profile">
             <img src="portrait.jpg" alt="">
             <p><span>{{ page.name }}</span><br>
-            <br>
-            邮箱：{{ page.email }}<br>
-            指导老师：{{ page.supervisor }}<br>
-            个人作品：www.xumandesign.cn<br>
+                <br>
+                邮箱：{{ page.email }}<br>
+                指导老师：{{ page.supervisor }}<br>
+                个人作品：www.xumandesign.cn<br>
             </p>
         </section>
         <section class="discription">
@@ -24,17 +37,17 @@ layout: default2
         </section>
     </div>
     <div class="display">
-        <!--{%- assign col = site.collections | where: "label", page.collection | first -%}
         {%- assign files = col.files |sort: "name" -%}
+        {% capture dir %}{{ page.number }}/img{% endcapture %}
         {%- for image in files -%}
-        {%- if image.path contains 'img' -%}
+        {%- if image.path contains dir -%}
         <img src="img/{{ image.name }}" alt="">
         {%- endif -%}
-        {%- endfor -%}-->
-        {%- for image in site.static_files -%}
+        {%- endfor -%}
+        <!-- {%- for image in site.static_files -%}
         {%- if image.path contains page.number -%}
         <img src="{{ image.path }}" alt="">
         {%- endif -%}
-        {%- endfor -%}
+        {%- endfor -%} -->
     </div>
 </main>
