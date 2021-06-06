@@ -1,7 +1,14 @@
 <header>
     <span class="icon">in:to</span>
     <ul class="buttons">
-        <li>EN</li>
+        {%- case page.lang -%}
+        {%- when "cn" -%}
+        {%- assign trans = site.projects | where: "number", page.number | where: "lang", "en" | first -%}
+        <li><a href="{{ trans.url }}">EN</a></li>
+        {%- when "en" -%}
+        {%- assign trans = site.projects | where: "number", page.number | where: "lang", "cn" | first -%}
+        <li><a href="{{ trans.url }}">CN</a></li>
+        {%- endcase -%}
         <li>RA</li>
         <li>MN</li>
     </ul>
