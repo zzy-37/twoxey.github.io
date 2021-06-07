@@ -27,10 +27,25 @@ main {
 .card {
   --offset: 300px;
   background: rgb(240, 240, 240);
-  color: none;
+  position: relative;
   border: 2px solid lightgrey;
   /*box-shadow: 0 -1rem 3rem;*/
   transition: .5s;
+}
+
+.card a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: red;
+  display: none;
+}
+
+.card:hover a {
+/* .card:active ~ .card a { */
+  display: block;
 }
 
 .card:not(:first-child) {
