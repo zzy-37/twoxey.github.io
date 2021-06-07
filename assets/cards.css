@@ -40,7 +40,7 @@ main {
   left: 0;
   right: 0;
   background: red;
-  display: none;
+  /* display: none; */
 }
 
 .card:hover a {
