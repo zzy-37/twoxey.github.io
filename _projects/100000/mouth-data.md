@@ -1,6 +1,7 @@
 ---
 layout: projects
 
+lang: cn
 number: 100000
 title: 口腔数据内容存储和调取工具
 name: 徐曼
