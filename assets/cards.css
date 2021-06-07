@@ -25,7 +25,7 @@ main {
   flex-direction: column;
 }
 .card {
-  --offset: 300px;
+  --offset: 20em;
   background: rgb(240, 240, 240);
   position: relative;
   border: 2px solid lightgrey;
@@ -35,17 +35,15 @@ main {
 
 .card a {
   position: absolute;
-  top: 0;
+  top: 100%;
   bottom: 0;
   left: 0;
   right: 0;
-  background: red;
-  /* display: none; */
+  transition: .5s;
 }
 
 .card:hover a {
-/* .card:active ~ .card a { */
-  display: block;
+  top: 0;
 }
 
 .card:not(:first-child) {
