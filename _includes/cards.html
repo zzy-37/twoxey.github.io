@@ -5,15 +5,15 @@
         <section class="cards">
             {%- assign projects = site.projects | where: "lang", "cn" -%}
             {%- for p in projects -%}
-            <a href="{{ p.url }}" class="card">
-                <article>
+            <!--<a href="{{ p.url }}" class="card">-->
+                <article class="card">
                     <img src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
                     <div class="header">
                         <span>{{ p.major }}</span>
                         <h2>{{ p.title }}</h2>
                     </div>
                 </article>
-            </a>
+            <!--</a>-->
             {%- endfor -%}
         </section>
     </main>

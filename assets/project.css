@@ -116,6 +116,7 @@ header {
 
 footer {
   border-top: 2px solid lightgray;
+  background: rgb(240, 240, 240);
   font-size: 0.6rem;
   padding: 0.6rem;
 }

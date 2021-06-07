@@ -25,7 +25,7 @@ main {
   flex-direction: column;
 }
 .card {
-  --offset: 380px;
+  --offset: 300px;
   background: rgb(240, 240, 240);
   color: none;
   border: 2px solid lightgrey;
