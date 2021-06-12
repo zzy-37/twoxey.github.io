@@ -101,26 +101,35 @@ header {
   font-size: 1.2rem;
 }
 
+.tabs {
+  width: 100%;
+  height: 100%;
+}
+
 .tab {
-  border-bottom: 2px solid rgb(240, 240, 240);
+  border-bottom: 1px solid rgb(240, 240, 240);
   height: 20%;
   width: 100%;
   position: relative;
   overflow: hidden;
 }
-
+/*
+.tab:not(:last-child):after {
+  height: 0;
+  transition: height 1.8s 1.8s;
+}
+*/
 .tab-heading {
   padding: 1rem;
 }
 
-.tab:hover {
-  height: 100%;
-}
-.tab:hover img {
-  height: 50%;
-}
-.tab:hover > .tab-content {
-  top: 40%;
+.tab-select {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .tab h2,
@@ -130,13 +139,15 @@ header {
 
 .tab img {
   position: absolute;
-  height: 100%;
+  height: 20vh;
   top: 0;
   right: 0;
 }
 
 .tab-content {
+  padding: 0 1rem;
   position: absolute;
+  hyphens: auto;
   top: 100%;
 }
 
@@ -152,8 +163,12 @@ header {
   transform: translateY(100vh);
   opacity: 0;
 }
+
 #Input1:not(:checked) ~ main .tab {
   transform: translateY(100vh);
+}
+#Input1:not(:checked) ~ main .tab:not(:first-child) {
+  margin-top: 200px;
 }
 #Input1:not(:checked) ~ main .tab > img {
   transform: translateX(100vw);
@@ -171,14 +186,31 @@ header {
   transition-delay: 0.5s;
 }
 
-.tab-content {
-  transition: top 1s 1.5s;
+.tab {
+  transition: transform 0.8s ease-out 1.8s, margin-top 1.8s 1.8s, height 1s .5s;
 }
 
 .tab img {
-  transition: transform 1s 3s, height 1s 1s;
+  transition: transform 1s 3s, height 1s;
 }
 
+.tab-content {
+  transition: top 1s;
+}
+
+#tab1:checked ~ .tabs .tab1 {
+  height: 100%;
+  transition: height 1s;
+}
+#tab1:checked ~ .tabs .tab1 img {
+  height: 50vh;
+  transition: height 0 1s;
+}
+#tab1:checked ~ .tabs .tab1 > .tab-content {
+  top: 40%;
+  transition: top 1s 1s;
+}
+/*
 .tab:nth-child(1) {
   transition: transform 0.8s ease-out 1.8s, height 1s;
 }
@@ -194,7 +226,7 @@ header {
 .tab:nth-child(5) {
   transition: transform 0.8s ease-out 2.6s, height 1s;
 }
-
+*/
 @media (min-width: 600px) {
   main {
     width: 600px;
