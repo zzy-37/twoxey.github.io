@@ -21,12 +21,12 @@ function setup() {
 function draw() {
   pg.clear();
   pg.background(0, 50);
-  pg.stroke(255);
+  pg.stroke(255, 255);
   pg.noFill();
   pg.strokeWeight(0.9);
 
   animate();
-
+  
   image(pg, 0, 0, width, height);
   // print(frameRate());
 }
@@ -34,11 +34,12 @@ function draw() {
 function animate() {
   let a = 0;
   for (let i = 0; i < TWO_PI; i += 0.01) {
-    pg.rotateY(0.1);
+    pg.rotateY(0.01);
+
     pg.push();
 
-    pg.rotateZ(0.1 * a); //0.1*a
-    pg.rotateY(0.5); //0.5*a
+    pg.rotateX(0.3 * a);
+    pg.rotateZ(0.3);
     drawCone();
 
     pg.pop();
