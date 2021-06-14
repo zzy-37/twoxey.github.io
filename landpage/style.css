@@ -109,7 +109,7 @@ header a {
 .tabs {
   width: 100%;
   height: 100%;
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
   position: absolute;
   top: 100vh;
   transition: 1.5s 1.2s;
@@ -117,6 +117,12 @@ header a {
 
 .back {
   position: absolute;
+  filter: invert(100%);
+  background: black;
+  /* padding: 0 1rem; */
+  width: 100%;
+  /* height: 20%; */
+  height: 1rem;
   top: 0;
   opacity: 0;
   visibility: hidden;
@@ -133,40 +139,20 @@ header a {
   border-top: 1px solid rgb(240, 240, 240);
   height: 100%;
   width: 100%;
+  padding: 0 1rem;
   position: relative;
   overflow: hidden;
   background: black;
   transition: 1s;
 }
 
-/* .tab-heading {
-  transition: .5s;
-}
-.tab:hover .tab-heading {
-  transition: .8s .5s;
-  transform: translateY(calc(var(--hi) * 0.3 - 100% - 1rem));
-} */
-
-.tab img {
-  transform-origin: 100% 0;
-  transition: transform .5s;
-}
-
-.tab:hover img {
-  transform: scale(2);
-  transition: transform .8s .5s;
-}
-
-/* .tab-content {
-  transition: transform .5s;
-}
-.tab:hover .tab-content {
-  transform: translateY(calc(var(--hi) * -0.7));
-  transition: transform 1.2s 1.2s;
-} */
-
 .tab:not(:first-child) {
   margin-top: calc(var(--hi) * -0.8);
+}
+
+.tab:hover {
+  overflow: auto;
+  filter: invert(100%);
 }
 
 .tab2:hover {
@@ -194,14 +180,24 @@ header a {
   bottom: 0;
   right: 0;
 }
+/* .tab:hover .tab-cards {
+  filter: invert(0);
+} */
 
-.tab img {
+.tab>img {
   position: absolute;
   height: 20vh;
   top: 0;
   right: 0;
+  transform-origin: 100% 0;
+  transition: transform .5s;
 }
 
+.tab:hover>img {
+  transform: scale(2);
+  transition: transform .8s .5s;
+
+}
 .tab-heading h2,
 .tab-heading p {
   margin: 0;
@@ -211,19 +207,27 @@ header a {
   text-align: justify;
 }
 
-.tab-heading::after {
-  content: "";
-  display: block;
-  height: 100vh;
-  /* transform-origin: 0 0; */
-  background: red;
-  transition: 1.5s 1s;
+.tab-heading {
+  padding: 1rem 0;
+  background: black;
+  transition: .5s;
 }
+/* .tab:hover .tab-heading {
+  transition: .8s .5s;
+  transform: translateY(calc(var(--hi) * 0.3 - 100% - 1rem));
+} */
 
-.tab:hover .tab-heading::after {
-  height: 0;
-  /* transform: scaleY(0); */
+/* .tab-cards,
+.tab-content {
+  position: relative;
+  top: 100vh;
+  transition: transform .5s;
 }
+.tab:hover .tab-cards,
+.tab:hover .tab-content {
+  transform: translateY(-100vh);
+  transition: transform 1.2s 1.2s;
+} */
 
 #Input1:checked ~ .intro {
   visibility: hidden;
@@ -312,6 +316,43 @@ header .buttons {
 .tab:nth-child(5) {
   transition: transform 0.8s ease-out 2.6s;
 } */
+
+.tab-cards {
+  /* z-index: -1; */
+}
+
+.card {
+  /* z-index: -1; */
+  --offset: 80vw;
+  position: relative;
+  background: rgb(240, 240, 240);
+  border-top: 1px solid black;
+  box-shadow: 0 -1px 10px black; 
+  transition: .5s;
+}
+
+.card img {
+  height: auto;
+  max-width: 100%;
+}
+
+.card:not(:first-child) {
+  margin-top: calc(var(--offset) * -1);
+} 
+.card:hover ~ .card {
+  transform: translateY(var(--offset));
+}
+.header {
+  color: black;
+  padding: 1rem;
+}
+
+.header h2 {
+  /* font-size: 1.5vh; */
+}
+.header span {
+  border-bottom: 1px solid black;
+}
 
 @media (min-width: 600px) {
   main {

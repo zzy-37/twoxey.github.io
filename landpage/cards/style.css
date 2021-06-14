@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+  margin: 0;
+  overflow: visible;
+
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.cards {
+  display: flex;
+  inset: 0;
+  flex-direction: column;
+}
+.card {
+  --offset: 70vw;
+  background: rgb(240, 240, 240);
+  border: 2px solid lightgrey;
+  box-shadow: 0 -1rem 1rem;
+  transition: .5s;
+}
+
+.card:not(:first-child) {
+  margin-top: calc(var(--offset) * -1);
+} 
+.card:hover ~ .card {
+  transform: translateY(var(--offset));
+}
+.header {
+  padding: 1.5rem;
+}
+
+.header h2 {
+  font-size: 1.5vh;
+}
+.header span {
+  font-size: 1vh;
+  border-bottom: 1px solid black;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
