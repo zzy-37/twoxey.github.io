@@ -29,7 +29,8 @@ img {
 }
 
 main {
-  height: calc(100% - 4rem);
+  --hi: calc(100vh - 4rem);
+  height: var(--hi);
   overflow: hidden;
 }
 
@@ -107,11 +108,25 @@ header {
 }
 
 .tab {
-  border-bottom: 1px solid rgb(240, 240, 240);
-  height: 20%;
+/*  border-bottom: 1px solid rgb(240, 240, 240); */
+  border-top: 1px solid rgb(240, 240, 240);
+/*  height: 20%; */
+  height: 100%;
   width: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.tab:not(:first-child) {
+  margin-top: calc(var(--hi) * -0.8);
+}
+
+.tab:not(:first-child):hover {
+  margin-top: calc(var(--hi) * -1);
+}
+
+.tab:hover ~ .tab {
+  transform: translateY(80%);
 }
 /*
 .tab:not(:last-child):after {
@@ -198,6 +213,7 @@ header {
   transition: top 1s;
 }
 
+/*
 #tab1:checked ~ .tabs .tab1 {
   height: 100%;
   transition: height 1s;
@@ -210,6 +226,7 @@ header {
   top: 40%;
   transition: top 1s 1s;
 }
+*/
 /*
 .tab:nth-child(1) {
   transition: transform 0.8s ease-out 1.8s, height 1s;
