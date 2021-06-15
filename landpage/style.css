@@ -180,9 +180,6 @@ header a {
   bottom: 0;
   right: 0;
 }
-/* .tab:hover .tab-cards {
-  filter: invert(0);
-} */
 
 .tab>img {
   position: absolute;
@@ -319,36 +316,52 @@ header .buttons {
 
 .tab-cards {
   /* z-index: -1; */
+  --offset: calc(48vw + 3.2rem);
+}
+
+.tab:hover .tab-cards {
+  filter: invert(100%);
 }
 
 .card {
   /* z-index: -1; */
-  --offset: 80vw;
   position: relative;
   background: rgb(240, 240, 240);
-  border-top: 1px solid black;
-  box-shadow: 0 -1px 10px black; 
+  box-shadow: 0 -1px 10px black;
   transition: .5s;
+}
+
+.tail {
+  color: black;
+  height: var(--offset);
+  padding: 1rem;
+  box-shadow: 0 -1px 10px black;
+}
+
+.spacer {
+  height:calc(48vw + 3.2rem);
 }
 
 .card img {
   height: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
 .card:not(:first-child) {
   margin-top: calc(var(--offset) * -1);
-} 
+}
 .card:hover ~ .card {
   transform: translateY(var(--offset));
 }
+
 .header {
   color: black;
   padding: 1rem;
 }
 
 .header h2 {
-  /* font-size: 1.5vh; */
+  font-size: 1.2rem;
+  margin: 1rem 0 0 0;
 }
 .header span {
   border-bottom: 1px solid black;
