@@ -15,13 +15,6 @@
         }
     </style>
     <script>
-        alert(localStorage.getItem('lang'));
-        let ico = document.getElementById("ico");
-        if (sessionStorage.getItem("lang")) {
-            // Restore the contents of the text field
-            document.body.className = sessionStorage.getItem("lang");
-            ico.innerHTML = sessionStorage.getItem("lang");
-        }
         function topFunction() {
             x = document.getElementsByClassName("tab");  // 找到元素
             for (i = 0; i < x.length; i++) {
@@ -39,6 +32,13 @@
 </head>
 
 <body class="cn">
+    <script>
+        let l = sessionStorage.getItem("lang")
+        if (l) {
+            // Restore the contents of the text field
+            document.body.className = l;
+        }
+    </script>
 
     <header>
         <a href="/" class="icon"><span id="ico">in:to</span></a>
