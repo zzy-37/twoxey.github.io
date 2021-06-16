@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -9,20 +9,32 @@
     <script>
         function topFunction() {
             x = document.getElementsByClassName("tab");  // 找到元素
-            for (i = 0; i < x.length; i++) {
+            for (let i = 0; i < x.length; i++) {
                 x[i].scrollTo(0, 0);
             }
             return false;
         }
+        function changeLang(l) {
+            document.body.className = l;
+            sessionStorage.setItem("lang", l);
+        }
     </script>
 </head>
 
-<body>
+<body class="cn">
+    <script>
+        let l = sessionStorage.getItem("lang")
+        if (l) {
+            // Restore the contents of the text field
+            document.body.className = l;
+        }
+    </script>
     <input type="checkbox" name="enter" value="0" id="Input1" hidden>
     <header>
-        <span class="icon" onclick="topFunction()">IN:TO</span>
+        <span id="ico" class="icon" onclick="topFunction()">IN:TO</span>
         <ul class="buttons">
-            <li>EN</li>
+            <li lang="cn" onclick="changeLang('en')">EN</li>
+            <li lang="en" onclick="changeLang('cn')">CN</li>
             <li>RA</li>
             <li>MN</li>
         </ul>
@@ -33,33 +45,38 @@
             {%- assign tabs = site.tabs -%}
             {%- for t in tabs -%}
             <div class="tab">
-                <img src="/tabs/{{ t.img }}" alt="">
+                <img loading="lazy" src="/tabs/{{ t.img }}" alt="">
                 <div class="tab-heading">
                     <h2>{{ t.heading-cn }}</h2>
                     <p>{{ t.heading-en }}</p>
                 </div>
                 <div class="tab-content">
-                    <p>{{ t.cn }}</p>
+                    <p lang="cn">{{ t.cn }}</p>
+                    <p lang="en">{{ t.en }}</p>
                 </div>
                 <div class="tab-cards">
                     {%- assign projects = site.projects | where: "lang", "cn" -%}
                     {%- for p in projects -%}
                     <div class="card">
-                        <img src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
-                        <a href="{{ p.url }}"></a>
-                        <div class="header">
-                            <span>{{ p.major }}</span>
-                            <h2>{{ p.title }}</h2>
+                        <div class="card-content">
+                            <img loading="lazy" src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
+                            <div class="header">
+                                <span>{{ p.major }}</span>
+                                <h2>{{ p.title }}</h2>
+                            </div>
                         </div>
+                        <a href="{{ p.url }}"></a>
                     </div>
                     {%- endfor -%}
-                    <div class="card tail">
-                        <p>Some insformation</p>
-                        <p>Some other information</p>
-                        <p onclick="topFunction()">Back to top</p>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Some insformation</p>
+                            <p>Some other information</p>
+                            <p onclick="topFunction()">Back to top</p>
+                        </div>
                     </div>
                 </div>
-                <div class="spacer">
+                <div class="tail">
                     <p>Some insformation</p>
                     <p>Some other information</p>
                 </div>
