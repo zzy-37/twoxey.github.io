@@ -13,11 +13,6 @@ body {
   font-family: "Noto Sans SC", sans-serif;
 }
 
-.intro {
-  position: absolute;
-  inset: 0;
-}
-
 img {
   height: auto;
   width: auto;
@@ -40,6 +35,11 @@ header {
 header a {
   color: rgb(240, 240, 240);
   text-decoration: none;
+}
+
+.intro {
+  position: absolute;
+  inset: 0;
 }
 
 .icon {
@@ -81,7 +81,7 @@ main {
 }
 
 .title {
-  padding:1rem;
+  padding: 1rem;
 }
 
 .title p {
@@ -89,12 +89,12 @@ main {
   font-size: 2rem;
   font-weight: lighter;
 }
-.title p:first-child {
+.title-bottom p:first-child {
   font-weight: bolder;
 }
 
 .title-top {
-  top: 0;
+  top: 3rem;
   left: 0;
 }
 .title-bottom {
