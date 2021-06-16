@@ -42,6 +42,9 @@ collections:
   projects:
     sort_by: name
     output: true
+  tabs:
+    sort_by: name
+    output: true
 
 defaults:
   - scope:
