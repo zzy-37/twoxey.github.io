@@ -10,7 +10,7 @@ body {
   background: black;
   color: rgb(240, 240, 240);
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* position: relative; */
 
   font-family: "Noto Sans SC", sans-serif;
