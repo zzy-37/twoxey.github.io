@@ -5,13 +5,13 @@
 body {
   /* max-width: 100vw;
   max-height: 100vh; */
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   background: black;
   color: rgb(240, 240, 240);
   margin: 0;
-  /* overflow: hidden; */
-  /* position: relative; */
+  overflow: hidden;
+  position: relative;
 
   font-family: "Noto Sans SC", sans-serif;
 }
@@ -59,8 +59,6 @@ header a {
 
 .intro {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
   inset: 0;
 }
 
