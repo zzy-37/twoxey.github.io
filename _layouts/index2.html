@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/index.css">
     <title>in:to</title>
     <script>
-        function topFunction()
-        {
-                    x=document.getElementsByClassName("tab");  // 找到元素
-                    for (i = 0; i < x.length; i++) {
-                                x[i].scrollTo(0, 0);
-                            }
-                    return false;
-                }
+        function topFunction() {
+            x = document.getElementsByClassName("tab");  // 找到元素
+            for (i = 0; i < x.length; i++) {
+                x[i].scrollTo(0, 0);
+            }
+            return false;
+        }
     </script>
 </head>
 
@@ -33,7 +32,7 @@
         <input type="checkbox" name="select" value="0" id="tab1-check" hidden>
         <div class="tabs">
             {%- assign tabs = site.tabs -%}
-	    {%- for t in tabs -%}
+            {%- for t in tabs -%}
             <div class="tab">
                 <div class="tab-heading">
                     <h2>{{ t.heading-cn }}</h2>
@@ -44,14 +43,15 @@
                     <p>{{ t.cn }}</p>
                 </div>
                 <div class="tab-cards">
+
                 </div>
                 <div class="spacer">
                     <p>Some insformation</p>
                     <p>Some other information</p>
                 </div>
             </div>
-	    {%- endfor -%}
-	</div>
+            {%- endfor -%}
+        </div>
     </main>
 
     <div class="intro">
