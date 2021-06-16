@@ -34,11 +34,11 @@
             {%- assign tabs = site.tabs -%}
             {%- for t in tabs -%}
             <div class="tab">
+                <img src="/tabs/{{ t.img }}" alt="">
                 <div class="tab-heading">
                     <h2>{{ t.heading-cn }}</h2>
                     <p>{{ t.heading-en }}</p>
                 </div>
-                <img src="/tabs/{{ t.img }}" alt="">
                 <div class="tab-content">
                     <p>{{ t.cn }}</p>
                 </div>

@@ -36,8 +36,8 @@ main {
 .entry {
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: larger;
   font-weight: bold;
   padding: 3rem;
@@ -76,6 +76,7 @@ main {
 }
 
 header {
+  position: -webkit-sticky;
   position: sticky;
   top:0;
   height: 4rem;
@@ -114,8 +115,8 @@ header a {
   /* padding: 0 1rem; */
   position: absolute;
   top: 100vh;
-  transition: 1.5s 1.2s;
   -webkit-transition: 1.5s 1.2s;
+  transition: 1.5s 1.2s;
 }
 
 .back {
@@ -129,8 +130,8 @@ header a {
   top: 0;
   opacity: 0;
   visibility: hidden;
-  transition: .8s 1.2s;
   -webkit-transition: .8s 1.2s;
+  transition: .8s 1.2s;
 }
 
 .tab:hover ~ .back {
@@ -147,8 +148,8 @@ header a {
   position: relative;
   overflow: hidden;
   background: black;
-  transition: 1s;
   -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .tab:not(:first-child) {
@@ -161,25 +162,25 @@ header a {
 }
 
 .tab:nth-child(2):hover {
-  transform: translateY(-20%);
   -webkit-transform: translateY(-20%);
+  transform: translateY(-20%);
 }
 .tab:nth-child(3):hover {
-  transform: translateY(-40%);
   -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
 }
 .tab:nth-child(4):hover {
-  transform: translateY(-60%);
   -webkit-transform: translateY(-60%);
+  transform: translateY(-60%);
 }
 .tab:nth-child(5):hover {
-  transform: translateY(-80%);
   -webkit-transform: translateY(-80%);
+  transform: translateY(-80%);
 }
 
 .tab:hover ~ .tab {
-  transform: translateY(80%);
   -webkit-transform: translateY(80%);
+  transform: translateY(80%);
 }
 
 .tab-select {
@@ -197,15 +198,15 @@ header a {
   top: 0;
   right: 0;
   transform-origin: 100% 0;
-  transition: transform .5s;
   -webkit-transition: transform .5s;
+  transition: transform .5s;
 }
 
 .tab:hover>img {
-  transform: scale(2);
   -webkit-transform: scale(2);
-  transition: transform .8s .5s;
+  transform: scale(2);
   -webkit-transition: transform .8s .5s;
+  transition: transform .8s .5s;
 
 }
 .tab-heading h2,
@@ -219,26 +220,25 @@ header a {
 
 .tab-heading {
   padding: 1rem 0;
-  background: black;
-  transition: .5s;
   -webkit-transition: .5s;
+  transition: .5s;
 }
 /* .tab:hover .tab-heading {
   transition: .8s .5s;
   transform: translateY(calc(var(--hi) * 0.3 - 100% - 1rem));
 } */
 
-/* .tab-cards,
-.tab-content {
+.tab-heading ~ * {
   position: relative;
   top: 100vh;
+  -webkit-transition: transform .5s;
   transition: transform .5s;
 }
-.tab:hover .tab-cards,
-.tab:hover .tab-content {
+.tab:hover .tab-heading ~ * {
   transform: translateY(-100vh);
+  -webkit-transition: transform 1.2s 1.2s;
   transition: transform 1.2s 1.2s;
-} */
+}
 
 #Input1:checked ~ .intro {
   visibility: hidden;
@@ -249,19 +249,19 @@ header a {
   opacity: 0;
 }
 #Input1:checked ~ .intro .title {
-  transform: translateY(100vh);
   -webkit-transform: translateY(100vh);
+  transform: translateY(100vh);
   opacity: 0;
 }
 
 #Input1:checked ~ header .buttons {
-  transform: translateY(-100vh);
   -webkit-transform: translateY(-100vh);
+  transform: translateY(-100vh);
 }
 
 #Input1:checked ~ main .tabs {
-  transform: translateY(-100vh);
   -webkit-transform: translateY(-100vh);
+  transform: translateY(-100vh);
 }
 
 /* #Input1:not(:checked) ~ main .tab {
@@ -271,25 +271,25 @@ header a {
   margin-top: 200px;
 } */
 #Input1:not(:checked) ~ main .tab > img {
-  transform: translateX(100vw);
   -webkit-transform: translateX(100vw);
+  transform: translateX(100vw);
 }
 
 header .buttons {
-  transition: 1.2s 1s;
   -webkit-transition: 1.2s 1s;
+  transition: 1.2s 1s;
 }
 .entry,
 .motion {
   position: absolute;
-  transition: 2s;
   -webkit-transition: 2s;
+  transition: 2s;
 }
 
 .title {
   position: absolute;
-  transition: 2s .5s;
   -webkit-transition: 2s .5s;
+  transition: 2s .5s;
 }
 
 /* .tab {
@@ -344,8 +344,8 @@ header .buttons {
   position: relative;
   background: rgb(240, 240, 240);
   box-shadow: 0 -1px 10px black;
-  transition: .5s;
   -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .card a {
@@ -354,8 +354,8 @@ header .buttons {
   bottom: 0;
   left: 0;
   right: 0;
-  transition: .5s;
   -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .card:hover a {
@@ -371,6 +371,7 @@ header .buttons {
 
 .spacer {
   height: var(--offset);
+  z-index: -1;
 }
 
 .card img {
@@ -382,8 +383,8 @@ header .buttons {
   margin-top: calc(var(--offset) * -1);
 }
 .card:hover ~ .card {
-  transform: translateY(var(--offset));
   -webkit-transform: translateY(var(--offset));
+  transform: translateY(var(--offset));
 }
 
 .header {
