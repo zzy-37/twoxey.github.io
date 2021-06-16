@@ -331,6 +331,19 @@ header .buttons {
   transition: .5s;
 }
 
+.card a {
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: .5s;
+}
+
+.card:hover a {
+  top: 0;
+}
+
 .tail {
   color: black;
   height: var(--offset);

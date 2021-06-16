@@ -43,7 +43,17 @@
                     <p>{{ t.cn }}</p>
                 </div>
                 <div class="tab-cards">
-
+                    {%- assign projects = site.projects | where: "lang", "cn" -%}
+                    {%- for p in projects -%}
+                    <div class="card">
+                        <img src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
+                        <a href="{{ p.url }}"></a>
+                        <div class="header">
+                            <span>{{ p.major }}</span>
+                            <h2>{{ p.title }}</h2>
+                        </div>
+                    </div>
+                    {%- endfor -%}
                 </div>
                 <div class="spacer">
                     <p>Some insformation</p>
