@@ -16,6 +16,13 @@ body {
   font-family: "Noto Sans SC", sans-serif;
 }
 
+body.en :lang(cn) {
+  display: none;
+}
+body.cn :lang(en) {
+  display: none;
+}
+
 img {
   height: auto;
   width: auto;
@@ -134,6 +141,7 @@ main {
   border-top: 1px solid rgb(240, 240, 240);
   height: 100%;
   width: 100%;
+  /* padding: 0 1rem 100% 1rem; */
   padding: 0 1rem;
   position: relative;
   overflow: hidden;
@@ -182,14 +190,28 @@ main {
   right: 0;
 }
 
+@keyframes imgin
+{
+    0%   {right: -100%}
+    100% {right: 0}
+}
+@-webkit-keyframes imgin
+{
+    0%   {right: -100%}
+    100% {right: 0}
+}
 .tab > img {
   position: absolute;
   height: 20vh;
   top: 0;
-  right: 0;
+  right: -100%;
   transform-origin: 100% 0;
   -webkit-transition: transform .5s;
   transition: transform .5s;
+}
+
+#Input1:checked ~ main .tab > img {
+  animation: imgin 1.5s 1.5s forwards;
 }
 
 .tab:hover > img {
@@ -259,10 +281,6 @@ main {
 /* #Input1:not(:checked) ~ main .tab:not(:first-child) {
   margin-top: 200px;
 } */
-#Input1:not(:checked) ~ main .tab > img {
-  -webkit-transform: translateX(100vw);
-  transform: translateX(100vw);
-}
 
 header .buttons {
   -webkit-transition: 1.2s 1s;
@@ -328,13 +346,27 @@ header .buttons {
   filter: invert(100%);
 }
 
+.tab-cards {
+  margin-bottom: 100%;
+}
+
 .card {
   /* z-index: -1; */
   position: relative;
+  padding-bottom: 100%;
   background: rgb(240, 240, 240);
   box-shadow: 0 -1px 10px black;
   -webkit-transition: .5s;
   transition: .5s;
+}
+
+.card-content {
+  position: absolute;
+  color: black;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .card a {
@@ -352,28 +384,24 @@ header .buttons {
 }
 
 .tail {
-  color: black;
-  height: var(--offset);
-  padding: 1rem;
-  box-shadow: 0 -1px 10px black;
-}
-
-.spacer {
-  height: var(--offset);
-  z-index: -1;
+  margin-top: -100%;
+  padding-top: 1rem;
 }
 
 .card img {
-  height: auto;
-  width: 100%;
+  height: 60%;
+  object-fit: cover;
 }
 
 .card:not(:first-child) {
-  margin-top: calc(var(--offset) * -1);
+  /* margin-top: calc(var(--offset) * -1); */
+  margin-top: -90%;
 }
 .card:hover ~ .card {
-  -webkit-transform: translateY(var(--offset));
-  transform: translateY(var(--offset));
+  /* -webkit-transform: translateY(var(--offset));
+  transform: translateY(var(--offset)); */
+  -webkit-transform: translateY(90%);
+  transform: translateY(90%);
 }
 
 .header {
