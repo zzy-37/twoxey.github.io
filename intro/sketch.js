@@ -5,7 +5,7 @@ let pt;
 let pg;
 
 function setup() {
-  // pixelDensity(1);
+  pixelDensity(1);
   createCanvas(windowWidth, windowHeight);
   background(0);
 
