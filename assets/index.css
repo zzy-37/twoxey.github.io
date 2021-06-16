@@ -27,6 +27,7 @@ img {
 
 main {
   --hi: calc(100vh - 4rem);
+  --offset: calc(48vw + 3.2rem);
   height: var(--hi);
   position: relative;
   overflow: hidden;
@@ -314,11 +315,6 @@ header .buttons {
   transition: transform 0.8s ease-out 2.6s;
 } */
 
-.tab-cards {
-  /* z-index: -1; */
-  --offset: calc(48vw + 3.2rem);
-}
-
 .tab:hover .tab-cards {
   filter: invert(100%);
 }
@@ -352,7 +348,7 @@ header .buttons {
 }
 
 .spacer {
-  height:calc(48vw + 3.2rem);
+  height: var(--offset);
 }
 
 .card img {
@@ -384,5 +380,6 @@ header .buttons {
   main {
     width: 600px;
     margin: auto;
+  --offset: calc(288px + 3.2rem);
   }
 }
