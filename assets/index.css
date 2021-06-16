@@ -37,6 +37,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   font-size: larger;
   font-weight: bold;
   padding: 3rem;
@@ -114,6 +115,7 @@ header a {
   position: absolute;
   top: 100vh;
   transition: 1.5s 1.2s;
+  -webkit-transition: 1.5s 1.2s;
 }
 
 .back {
@@ -128,6 +130,7 @@ header a {
   opacity: 0;
   visibility: hidden;
   transition: .8s 1.2s;
+  -webkit-transition: .8s 1.2s;
 }
 
 .tab:hover ~ .back {
@@ -145,6 +148,7 @@ header a {
   overflow: hidden;
   background: black;
   transition: 1s;
+  -webkit-transition: 1s;
 }
 
 .tab:not(:first-child) {
@@ -158,19 +162,24 @@ header a {
 
 .tab:nth-child(2):hover {
   transform: translateY(-20%);
+  -webkit-transform: translateY(-20%);
 }
 .tab:nth-child(3):hover {
   transform: translateY(-40%);
+  -webkit-transform: translateY(-40%);
 }
 .tab:nth-child(4):hover {
   transform: translateY(-60%);
+  -webkit-transform: translateY(-60%);
 }
 .tab:nth-child(5):hover {
   transform: translateY(-80%);
+  -webkit-transform: translateY(-80%);
 }
 
 .tab:hover ~ .tab {
   transform: translateY(80%);
+  -webkit-transform: translateY(80%);
 }
 
 .tab-select {
@@ -189,11 +198,14 @@ header a {
   right: 0;
   transform-origin: 100% 0;
   transition: transform .5s;
+  -webkit-transition: transform .5s;
 }
 
 .tab:hover>img {
   transform: scale(2);
+  -webkit-transform: scale(2);
   transition: transform .8s .5s;
+  -webkit-transition: transform .8s .5s;
 
 }
 .tab-heading h2,
@@ -209,6 +221,7 @@ header a {
   padding: 1rem 0;
   background: black;
   transition: .5s;
+  -webkit-transition: .5s;
 }
 /* .tab:hover .tab-heading {
   transition: .8s .5s;
@@ -237,15 +250,18 @@ header a {
 }
 #Input1:checked ~ .intro .title {
   transform: translateY(100vh);
+  -webkit-transform: translateY(100vh);
   opacity: 0;
 }
 
 #Input1:checked ~ header .buttons {
   transform: translateY(-100vh);
+  -webkit-transform: translateY(-100vh);
 }
 
 #Input1:checked ~ main .tabs {
   transform: translateY(-100vh);
+  -webkit-transform: translateY(-100vh);
 }
 
 /* #Input1:not(:checked) ~ main .tab {
@@ -256,20 +272,24 @@ header a {
 } */
 #Input1:not(:checked) ~ main .tab > img {
   transform: translateX(100vw);
+  -webkit-transform: translateX(100vw);
 }
 
 header .buttons {
   transition: 1.2s 1s;
+  -webkit-transition: 1.2s 1s;
 }
 .entry,
 .motion {
   position: absolute;
   transition: 2s;
+  -webkit-transition: 2s;
 }
 
 .title {
   position: absolute;
   transition: 2s .5s;
+  -webkit-transition: 2s .5s;
 }
 
 /* .tab {
@@ -325,6 +345,7 @@ header .buttons {
   background: rgb(240, 240, 240);
   box-shadow: 0 -1px 10px black;
   transition: .5s;
+  -webkit-transition: .5s;
 }
 
 .card a {
@@ -334,6 +355,7 @@ header .buttons {
   left: 0;
   right: 0;
   transition: .5s;
+  -webkit-transition: .5s;
 }
 
 .card:hover a {
@@ -361,6 +383,7 @@ header .buttons {
 }
 .card:hover ~ .card {
   transform: translateY(var(--offset));
+  -webkit-transform: translateY(var(--offset));
 }
 
 .header {
