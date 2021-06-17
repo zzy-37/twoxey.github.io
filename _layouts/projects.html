@@ -4,19 +4,19 @@ layout: default2
 <main>
     <div class="banner">
         {%- assign col = site.collections | where: "label", page.collection | first -%}
-        {%- for file in col.files -%}
-        {%- if file.path contains page.number and file.basename == "video" -%}
-        {%- assign video = file -%}
-        {%- endif -%}
-        {%- endfor -%}
-
-        {%- if video -%}
-        <video controls>
-            <source src="/projects/{{ page.number }}/{{ video.name }}" type="video/mp4">
-        </video>
-        {%- else -%}
-        <img src="/projects/{{ page.number }}/thumbnail.jpg" alt="">
-        {%- endif -%}
+        <script>
+            var http = new XMLHttpRequest();
+            http.open('HEAD', 'video.mp4', false);
+            http.send();
+            if (http.status != 404) {
+                document.writeln('<video controls>');
+                document.writeln('<source src="video.mp4" type="video/mp4">');
+                document.writeln('</video> ');
+            } else {
+                document.writeln('<img src="thumbnail.jpg" alt="">')
+            }
+        </script>
+        <!-- <video style="background: url(thumbnail.jpg);background-size: contain;" src="video.mp4"></video> -->
     </div>
     <div class="content">
         <section class="title">
