@@ -4,9 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/index.css">
+    <link rel="stylesheet" href="/assets/index3.css">
     <title>in:to</title>
     <script>
+        function setLang() {
+            let l = sessionStorage.getItem("lang")
+            if (l) {
+                // Restore the contents of the text field
+                document.body.className = l;
+            }
+        }
         function topFunction() {
             x = document.getElementsByClassName("tab");  // 找到元素
             for (let i = 0; i < x.length; i++) {
@@ -21,18 +28,11 @@
     </script>
 </head>
 
-<body class="cn">
-    <script>
-        let l = sessionStorage.getItem("lang")
-        if (l) {
-            // Restore the contents of the text field
-            document.body.className = l;
-        }
-    </script>
+<body class="cn" onload="setLang()">
 
     <input type="checkbox" name="enter" value="0" id="Input1" hidden>
     <header>
-        <span id="ico" class="icon" onclick="topFunction()">IN:TO</span>
+        <span class="icon" onclick="topFunction()">IN:TO</span>
         <ul class="buttons">
             <li lang="cn" onclick="changeLang('en')">EN</li>
             <li lang="en" onclick="changeLang('cn')">CN</li>
@@ -42,6 +42,7 @@
     </header>
 
     <main>
+
         <div class="tabs">
             {%- assign tabs = site.tabs -%}
             {%- for t in tabs -%}
@@ -56,17 +57,22 @@
                     <p lang="en">{{ t.en }}</p>
                 </div>
                 <div class="tab-cards">
-                    {%- assign projects = site.projects | where: "lang", "cn" -%}
+                    {%- assign projects = site.projects | where: "category", t.heading-en -%}
                     {%- for p in projects -%}
                     <div class="card">
                         <div class="card-content">
                             <img loading="lazy" src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
                             <div class="header">
-                                <span>{{ p.major }}</span>
-                                <h2>{{ p.title }}</h2>
+                                <span lang="en">{{ p.major }}</span>
+                                <h2 lang="en">{{ p.title }}</h2>
+                                {%- assign cn = site.projects | where: "number", p.number | where: "lang", "cn" | first
+                                -%}
+                                <span lang="cn">{{ cn.major }}</span>
+                                <h2 lang="cn">{{ cn.title }}</h2>
                             </div>
                         </div>
-                        <a href="{{ p.url }}"></a>
+                        <a lang="en" href="{{ p.url }}"></a>
+                        <a lang="cn" href="{{ cn.url }}"></a>
                     </div>
                     {%- endfor -%}
                     <div class="card">
@@ -84,6 +90,7 @@
             </div>
             {%- endfor -%}
         </div>
+
     </main>
 
     <div class="intro">
