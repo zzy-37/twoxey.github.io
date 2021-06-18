@@ -150,33 +150,53 @@ main {
   transition: 1s;
 }
 
+/* .unsel {
+  position: absolute;
+  background: red;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.tab:hover ~ .unsel {
+  display: block;
+} */
+
 .tab:not(:first-child) {
   margin-top: calc(var(--hi) * -0.8);
 }
 
-.tab:hover {
+.select{
+/* .tab:hover { */
   overflow: auto;
   filter: invert(100%);
 }
 
-.tab:nth-child(2):hover {
+/* .tab:nth-child(2):hover { */
+.select:nth-child(2) {
   -webkit-transform: translateY(-20%);
   transform: translateY(-20%);
 }
-.tab:nth-child(3):hover {
+.select:nth-child(3) {
+/* .tab:nth-child(3):hover { */
   -webkit-transform: translateY(-40%);
   transform: translateY(-40%);
 }
-.tab:nth-child(4):hover {
+.select:nth-child(4) {
+/* .tab:nth-child(4):hover { */
   -webkit-transform: translateY(-60%);
   transform: translateY(-60%);
 }
-.tab:nth-child(5):hover {
+.select:nth-child(5) {
+/* .tab:nth-child(5):hover { */
   -webkit-transform: translateY(-80%);
   transform: translateY(-80%);
 }
 
-.tab:hover ~ .tab {
+.select ~ .tab {
+/* .tab:hover ~ .tab { */
   -webkit-transform: translateY(80%);
   transform: translateY(80%);
 }
@@ -214,7 +234,8 @@ main {
   animation: imgin 1.5s 1.5s forwards;
 }
 
-.tab:hover > img {
+.select > img {
+/* .tab:hover > img { */
   -webkit-transform: scale(2);
   transform: scale(2);
   -webkit-transition: transform .8s .5s;
@@ -245,7 +266,8 @@ main {
   -webkit-transition: .5s;
   transition: .5s;
 }
-.tab:hover .tab-heading ~ * {
+.select .tab-heading ~ * {
+/* .tab:hover .tab-heading ~ * { */
   opacity: 1;
   -webkit-transition: transform 1.2s 1.2s;
   transition: transform 1.2s 1.2s;
@@ -342,7 +364,8 @@ header .buttons {
   transition: transform 0.8s ease-out 2.6s;
 } */
 
-.tab:hover .tab-cards {
+/* .tab:hover .tab-cards { */
+.select .tab-cards {
   filter: invert(100%);
 }
 
