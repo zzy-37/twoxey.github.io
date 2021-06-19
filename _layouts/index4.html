@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/index3.css">
+    <link rel="stylesheet" href="/assets/index4.css">
     <title>in:to</title>
     <script>
         let lock = false;
@@ -16,7 +16,7 @@
             }
         }
         function topFunction() {
-            x = document.getElementsByClassName("tab");  // 找到元素
+            let x = document.getElementsByClassName("tab");  // 找到元素
             for (let i = 0; i < x.length; i++) {
                 x[i].scrollTo(0, 0);
             }
@@ -32,15 +32,22 @@
                 topFunction();
             }
         }
+        function hideIntro() {
+            setTimeout(function () {
+                let intro = document.getElementsByClassName("intro")[0];
+                intro.style.display = "none";
+            }, 3000);
+        }
     </script>
 </head>
 
 <body class="cn" onload="setLang()">
 
     <input type="checkbox" name="enter" value="0" id="Input1" hidden>
-    <header>
-        <span class="icon" onclick="topFunction()">IN:TO</span>
-        <ul class="buttons">
+
+    <header id="header">
+        <a href="/">IN:TO</a>
+        <ul>
             <li lang="cn" onclick="changeLang('en')">EN</li>
             <li lang="en" onclick="changeLang('cn')">CN</li>
             <li>RA</li>
@@ -102,14 +109,14 @@
     </main>
 
     <div class="intro">
-        <label class="entry" for="Input1">进入展览</label>
-        <iframe class="motion" src="/intro/index.html"></iframe>
+
         <div class="title title-top">
             <p>同济大学</p>
             <p>设计创意学院</p>
             <p>二〇二一届</p>
             <p>本科毕业设计展</p>
         </div>
+        <a href="#header" onclick="hideIntro()" class="entry">进入展览</a>
         <div class="title title-bottom">
             <p>IN:TO</p>
             <p>TONGJI D&I</p>
@@ -117,6 +124,8 @@
             <p>GRADUATION</p>
             <p>EXHIBITION 2021</p>
         </div>
+
+        <iframe class="motion" src="/intro/index.html"></iframe>
     </div>
 
 </body>
