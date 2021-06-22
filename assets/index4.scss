@@ -89,6 +89,12 @@ main {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
 
+  transition: opacity .5s;
+
+  &.out {
+    opacity: 0;
+  }
+
   > * {
     height: 100%;
     position: relative;

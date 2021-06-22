@@ -21,6 +21,13 @@ layout: default2
     function hideIntro() {
         const intro = document.querySelector(".intro");
         intro.classList.add('out');
+        setTimeout(function () {
+            intro.style.display = "none";
+        }, 1500);
+        const ma = document.querySelector("main");
+        setTimeout(function () {
+            ma.classList.toggle('out');
+        }, 1500);
         const ins = document.querySelectorAll(".in");
         const imgs = document.querySelectorAll(".imgin");
         for (let i = 0; i < ins.length; i++) {
@@ -33,13 +40,10 @@ layout: default2
                 i.classList.toggle('imgin');
             }, 3000)
         });
-        setTimeout(function () {
-            intro.style.display = "none";
-        }, 1500);
     }
 </script>
 
-<main>
+<main class="out">
     <div class="foreword">
         <h2>序</h2>
         <p>
