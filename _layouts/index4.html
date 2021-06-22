@@ -1,126 +1,107 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default2
+---
+<link rel="stylesheet" href="/assets/index4.css">
+<script>
+    let lock = false;
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/index4.css">
-    <title>in:to</title>
-    <script>
-        let lock = false;
-        function setLang() {
-            let l = sessionStorage.getItem("lang")
-            if (l) {
-                // Restore the contents of the text field
-                document.body.className = l;
-            }
+    function topFunction() {
+        let x = document.getElementsByClassName("tab");  // 找到元素
+        for (let i = 0; i < x.length; i++) {
+            x[i].scrollTo(0, 0);
         }
-        function topFunction() {
-            let x = document.getElementsByClassName("tab");  // 找到元素
-            for (let i = 0; i < x.length; i++) {
-                x[i].scrollTo(0, 0);
-            }
-            return false;
+        return false;
+    }
+    function select(t) {
+        if (!lock) {
+            t.classList.toggle('select');
+            topFunction();
         }
-        function changeLang(l) {
-            document.body.className = l;
-            sessionStorage.setItem("lang", l);
-        }
-        function select(t) {
-            if (!lock) {
-                t.classList.toggle('tab-select');
-                topFunction();
-            }
-        }
-        function hideIntro() {
+    }
+    function hideIntro() {
+        let intro = document.querySelector(".intro");
+        intro.classList.add('out');
+        let ins = document.querySelectorAll(".in");
+        for (let i = 0; i < ins.length; i++) {
             setTimeout(function () {
-                let intro = document.getElementsByClassName("intro")[0];
-                intro.style.display = "none";
-            }, 3000);
+                ins[i].classList.toggle('in');
+            }, 200 * i + 2000)
         }
-    </script>
-</head>
+        setTimeout(function () {
+            intro.style.display = "none";
+        }, 3000);
+    }
+</script>
 
-<body class="cn" onload="setLang()">
+<main>
 
-    <input type="checkbox" name="enter" value="0" id="Input1" hidden>
-
-    <header id="header">
-        <a href="/">IN:TO</a>
-        <ul>
-            <li lang="cn" onclick="changeLang('en')">EN</li>
-            <li lang="en" onclick="changeLang('cn')">CN</li>
-            <li><a href="#tabs">RA</a></li>
-            <li>MN</li>
-        </ul>
-    </header>
-
-    <main>
-
-        <div id="tabs">
-            {%- assign tabs = site.tabs -%}
-            {%- for t in tabs -%}
-            <div class="tab" onclick="select(this)">
-                <img loading="lazy" src="/tabs/{{ t.img }}" alt="">
-                <div class="tab-heading">
-                    <h2>{{ t.heading-cn }}</h2>
-                    <p>{{ t.heading-en }}</p>
-                </div>
-                <div class="tab-content">
-                    <p lang="cn">{{ t.cn }}</p>
-                    <p lang="en">{{ t.en }}</p>
-                </div>
-                <div class="tab-cards" onmouseover="lock=true" onmouseout="lock=false">
-                    {%- assign projects = site.projects | where: "category", t.heading-en -%}
-                    {%- for p in projects -%}
-                    <div class="card">
+    <div class="tabs">
+        {%- assign tabs = site.tabs -%}
+        {%- for t in tabs -%}
+        <div class="tab in" onclick="select(this)">
+            <img loading="lazy" src="/tabs/{{ t.img }}" alt="">
+            <div class="tab-heading">
+                <h2>{{ t.heading-cn }}</h2>
+                <p>{{ t.heading-en }}</p>
+            </div>
+            <div class="tab-content">
+                <p lang="cn">{{ t.cn }}</p>
+                <p lang="en">{{ t.en }}</p>
+            </div>
+            <div class="tab-cards" onmouseover="lock=true" onmouseout="lock=false">
+                {%- assign projects = site.projects | where: "category", t.heading-en -%}
+                {%- for p in projects -%}
+                <div class="card">
+                    <div class="card-content">
                         <img loading="lazy" src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
-                        <span lang="en">{{ p.major }}</span>
-                        <h2 lang="en">{{ p.title }}</h2>
-                        {%- assign cn = site.projects | where: "number", p.number | where: "lang", "cn" | first
-                        -%}
-                        <span lang="cn">{{ cn.major }}</span>
-                        <h2 lang="cn">{{ cn.title }}</h2>
-                        <a lang="en" href="{{ p.url }}"></a>
-                        <a lang="cn" href="{{ cn.url }}"></a>
+                        <div>
+                            <span lang="en">{{ p.major }}</span>
+                            <h2 lang="en">{{ p.title }}</h2>
+                            {%- assign cn = site.projects | where: "number", p.number | where: "lang", "cn" | first -%}
+                            <span lang="cn">{{ cn.major }}</span>
+                            <h2 lang="cn">{{ cn.title }}</h2>
+                        </div>
                     </div>
-                    {%- endfor -%}
-                    <div class="card">
-                        <p>Some insformation</p>
-                        <p>Some other information</p>
-                        <p onclick="topFunction()">Back to top</p>
-                    </div>
+                    <a href="{{ p.url }}"></a>
+                    <!-- <a lang="cn" href="{{ cn.url }}"></a> -->
                 </div>
-                <div class="tail">
-                    <p>Some insformation</p>
-                    <p>Some other information</p>
+                {%- endfor -%}
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <p>Some insformation</p>
+                            <p>Some other information</p>
+                            <p onclick="topFunction()">Back to top</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {%- endfor -%}
+            <div class="tail">
+                <p>Some insformation</p>
+                <p>Some other information</p>
+            </div>
         </div>
-
-    </main>
-
-    <div class="intro">
-
-        <div class="title title-top">
-            <p>同济大学</p>
-            <p>设计创意学院</p>
-            <p>二〇二一届</p>
-            <p>本科毕业设计展</p>
-        </div>
-        <a href="#header" onclick="hideIntro()" class="entry">进入展览</a>
-        <div class="title title-bottom">
-            <p>IN:TO</p>
-            <p>TONGJI D&I</p>
-            <p>UNDERGRADUATE</p>
-            <p>GRADUATION</p>
-            <p>EXHIBITION 2021</p>
-        </div>
-
-        <iframe class="motion" src="/intro/index.html"></iframe>
+        {%- endfor -%}
     </div>
 
-</body>
+</main>
 
-</html>
+<div class="intro">
+
+    <div class="title title-top">
+        <p>同济大学</p>
+        <p>设计创意学院</p>
+        <p>二〇二一届</p>
+        <p>本科毕业设计展</p>
+    </div>
+    <span onclick="hideIntro()" class="entry">进入展览</span>
+    <div class="title title-bottom">
+        <p>IN:TO</p>
+        <p>TONGJI D&I</p>
+        <p>UNDERGRADUATE</p>
+        <p>GRADUATION</p>
+        <p>EXHIBITION 2021</p>
+    </div>
+
+    <iframe class="motion" src="/intro/index.html"></iframe>
+</div>

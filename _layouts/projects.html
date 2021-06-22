@@ -1,6 +1,8 @@
 ---
 layout: default2
 ---
+<link rel="stylesheet" href="/assets/project.css">
+
 <main>
     <div class="banner">
         {%- assign col = site.collections | where: "label", page.collection | first -%}
@@ -18,21 +20,32 @@ layout: default2
         </script>
         <!-- <video style="background: url(thumbnail.jpg);background-size: contain;" src="video.mp4"></video> -->
     </div>
+    {%- assign cn = site.projects | where: "number", page.number | where: "lang", "cn" | first -%}
     <div class="content">
         <section class="title">
-            <span>{{ page.major }}</span>
-            <h1>{{ page.title }}</h1>
+            <span lang="en">{{ page.major }}</span>
+            <span lang="cn">{{ cn.major }}</span>
+            <h1 lang="en">{{ page.title }}</h1>
+            <h1 lang="cn">{{ cn.title }}</h1>
         </section>
         <section class="profile">
             <img src="portrait.jpg" alt="">
-            <p><span>{{ page.name }}</span><br>
+            <p lang="en"><span>{{ page.name }}</span><br>
                 <br>
                 E-mail：{{ page.email }}<br>
                 Tutor：{{ page.supervisor }}<br>
             </p>
+            <p lang="cn"><span>{{ cn.name }}</span><br>
+                <br>
+                E-mail：{{ cn.email }}<br>
+                指导老师：{{ cn.supervisor }}<br>
+            </p>
         </section>
-        <section class="discription">
+        <section lang="en" class="discription">
             {{- content | newline_to_br -}}
+        </section>
+        <section lang="cn" class="discription">
+            {{- cn.content | newline_to_br -}}
         </section>
     </div>
     <div class="display">
@@ -50,3 +63,5 @@ layout: default2
         {%- endfor -%} -->
     </div>
 </main>
+
+{%- include footer2.html -%}

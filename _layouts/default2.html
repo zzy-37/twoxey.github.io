@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-<link rel="stylesheet" href="{{ "/assets/project.css" | relative_url }}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/init.css">
+<script src="/assets/init.js"></script>
 
-  {%- include head.html -%}
+{%- include head.html -%}
 
-  <body>
+<body class="cn" onload="setLang()">
 
-    {%- include header2.html -%}
+    {%- include header3.html -%}
 
     {{ content }}
 
-    {%- include footer2.html -%}
-
-  </body>
+</body>
 
 </html>

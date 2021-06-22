@@ -1,13 +1,14 @@
+<link rel="stylesheet" href="/assets/header.css">
 <header>
-    <a href="/" class="icon"><span>in:to</span></a>
-    <ul class="buttons">
+    <a href="/">IN:TO</a>
+    <ul>
         {%- case page.lang -%}
         {%- when "cn" -%}
         {%- assign trans = site.projects | where: "number", page.number | where: "lang", "en" | first -%}
-        <li><a href="{{ trans.url }}">EN</a></li>
+        <li><a href="{{ trans.url }}">EN </a></li>
         {%- when "en" -%}
         {%- assign trans = site.projects | where: "number", page.number | where: "lang", "cn" | first -%}
-        <li><a href="{{ trans.url }}">CN</a></li>
+        <li><a href="{{ trans.url }}">中 </a></li>
         {%- endcase -%}
         <li>RA</li>
         <li>MN</li>

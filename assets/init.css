@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+:lang(cn) {
+  text-align: justify;
+}
+
+body.cn :lang(en),
+body.en :lang(cn) {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}

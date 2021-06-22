@@ -5,7 +5,7 @@ number: 1650516
 lang: en
 category: Circular Intergrowth
 
-title: "\"WILD FOOD\":environmental and service system design"
+title: "\"WILD FOOD\": environmental and service system design"
 major: environmental design
 name: Yuan Yiwei
 email: yiwei958@126.com
