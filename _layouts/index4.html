@@ -19,27 +19,84 @@ layout: default2
         }
     }
     function hideIntro() {
-        let intro = document.querySelector(".intro");
+        const intro = document.querySelector(".intro");
         intro.classList.add('out');
-        let ins = document.querySelectorAll(".in");
+        const ins = document.querySelectorAll(".in");
+        const imgs = document.querySelectorAll(".imgin");
         for (let i = 0; i < ins.length; i++) {
             setTimeout(function () {
                 ins[i].classList.toggle('in');
-            }, 200 * i + 2000)
+            }, 200 * i + 1000)
         }
+        imgs.forEach(i => {
+            setTimeout(function () {
+                i.classList.toggle('imgin');
+            }, 3000)
+        });
         setTimeout(function () {
             intro.style.display = "none";
-        }, 3000);
+        }, 1500);
     }
 </script>
 
 <main>
+    <div class="foreword">
+        <h2>序</h2>
+        <p>
+            不管从哪个角度看，<br>
+            2021年绝对是可以载入人类发展史册的一年。<br>
+            <br>
+            随着各种疫苗在全球范围内的应用，<br>
+            人类终于在今年看到了这场旷日持久的与新冠病毒战争的曙光。<br>
+            今天我们对战后未来的任何预测都还为时过早，<br>
+            但可以断言的是：<br>
+            众多我们习以为常的生活方式、价值判断和行为准则都将会被重新定义，<br>
+            人类又一次站在了走向未来的十字路口！<br>
+            <br>
+            2021年，万众期待的重启有望到来，<br>
+            尽管这个重启时间之长很可能会超乎我们想象。<br>
+            但我们都期待即将到来的，<br>
+            应该是一个全新的、更好的世界！<br>
+            这个世界不会从天而降，而需要我们主动的设计和创造。<br>
+            就如同被人类寄予厚望的疫苗，<br>
+            设计是助力人类实现对未来想象的武装。<br>
+            <br>
+            2021年，同济大学设计创意学院，<br>
+            也迎来了久违了的线下的本科毕业设计展。<br>
+            因为曾经失去，<br>
+            所以倍感珍惜。<br>
+            <br>
+            今年本科毕业设计展以“投身 IN:TO”为主题，<br>
+            “IN当下和TO未来之间，唯有“投身其中”（即INTO），<br>
+            才有可能将现在与将来建立起有更意义的联系。”<br>
+            以“太空”为意向的海报，<br>
+            传达出学生对不确定未来的乐观主义精神。<br>
+            值得一提的是这次的毕业设计展览，<br>
+            打破了按专业展陈的传统，<br>
+            而是采用了以“问题”为导向的展览结构，<br>
+            一个个聚类的展区，就是一个个对未来的想象和憧憬。<br>
+            <br>
+            经过八年多的长考，<br>
+            我也很庆幸能在2021年和同学们在同一年毕业。<br>
+            今年是我作为院长最后一次为大家的毕业设计写序，<br>
+            再多的文字也无法承载我对大家的祝福和期许。<br>
+            面对未来的不确定性，<br>
+            让我们一起躬身入局，<br>
+            投身寻常、<br>
+            且行且歌！<br>
+        </p>
+        <div class="signature">
+            <img src="/assets/signature2.png" alt="">
+            <p>娄永琪 教授</p>
+            <p>同济大学 副校长 / 设计创意学院 院长</p>
+        </div>
+    </div>
 
     <div class="tabs">
         {%- assign tabs = site.tabs -%}
         {%- for t in tabs -%}
-        <div class="tab in" onclick="select(this)">
-            <img loading="lazy" src="/tabs/{{ t.img }}" alt="">
+        <div class="tab" onclick="select(this)">
+            <img class="" loading="lazy" src="/tabs/{{ t.img }}" alt="">
             <div class="tab-heading">
                 <h2>{{ t.heading-cn }}</h2>
                 <p>{{ t.heading-en }}</p>
