@@ -47,6 +47,8 @@ layout: default2
         <section lang="cn" class="discription">
             {{- cn.content | newline_to_br -}}
         </section>
+        <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+        <a href="{{ page.next.url }}">{{ page.next.title }}</a>
     </div>
     <div class="display">
         {%- assign files = col.files |sort: "name" -%}
