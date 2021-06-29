@@ -278,9 +278,14 @@ main {
 }
 
 @media (min-width: 600px) {
-  main {
-    width: 600px;
-    margin: auto;
-    --offset: calc(288px + 3.2rem);
-  }
+    .tab-cards {
+        margin:0;
+        display:flex;
+    }
+    .card{
+        width:100%;
+        &:not(:first-child){
+        margin:0;
+    }
+    }
 }
