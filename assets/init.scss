@@ -1,0 +1,35 @@
+---
+---
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  width: 6px;
+
+  &-track {
+    background: transparent;
+  }
+  &-thumb {
+    background: rgb(240, 240, 240);
+    border-right: 5px solid black;
+  }
+}
+
+:lang(cn) {
+  text-align: justify;
+}
+
+body.cn :lang(en),
+body.en :lang(cn) {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}

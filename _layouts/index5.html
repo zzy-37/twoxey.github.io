@@ -2,6 +2,46 @@
 layout: default2
 ---
 <link rel="stylesheet" href="/assets/index4.css">
+<script>
+    let lock = false;
+
+    function topFunction() {
+        let x = document.getElementsByClassName("tab");  // 找到元素
+        for (let i = 0; i < x.length; i++) {
+            x[i].scrollTo(0, 0);
+        }
+        return false;
+    }
+    function select(t) {
+        if (!lock) {
+            t.classList.toggle('select');
+            topFunction();
+        }
+    }
+    function hideIntro() {
+        const intro = document.querySelector(".intro");
+        intro.classList.add('out');
+        setTimeout(function () {
+            intro.style.display = "none";
+        }, 1500);
+        const ma = document.querySelector("main");
+        setTimeout(function () {
+            ma.classList.toggle('out');
+        }, 1500);
+        const ins = document.querySelectorAll(".in");
+        const imgs = document.querySelectorAll(".imgin");
+        for (let i = 0; i < ins.length; i++) {
+            setTimeout(function () {
+                ins[i].classList.toggle('in');
+            }, 200 * i + 1000)
+        }
+        imgs.forEach(i => {
+            setTimeout(function () {
+                i.classList.toggle('imgin');
+            }, 3000)
+        });
+    }
+</script>
 
 <main class="out">
     <div class="foreword">
@@ -59,47 +99,47 @@ layout: default2
     <div class="tabs">
         {%- assign tabs = site.tabs -%}
         {%- for t in tabs -%}
-        <div class="tab in" onclick="select(this)">
+        <div class="tab" onclick="select(this)">
+            <img class="" loading="lazy" src="/tabs/{{ t.img }}" alt="">
             <div class="tab-heading">
-                <img class="imgin" src="/tabs/{{ t.img }}" alt="">
                 <h2>{{ t.heading-cn }}</h2>
                 <p>{{ t.heading-en }}</p>
             </div>
             <div class="tab-content">
                 <p lang="cn">{{ t.cn }}</p>
                 <p lang="en">{{ t.en }}</p>
-                <div class="cardwrapper">
-                    <div class="tab-cards" onmouseover="lock=true" onmouseout="lock=false">
-                        {%- assign projects = site.projects | where: "category", t.heading-en -%}
-                        {%- for p in projects -%}
-                        <div class="card">
-                            <div class="card-content">
-                                <img loading="lazy" src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
-                                <div>
-                                    <span lang="en">{{ p.major }}</span>
-                                    <h2 lang="en">{{ p.title }}</h2>
-                                    {%- assign cn = site.projects | where: "number", p.number | where: "lang", "cn" |
-                                    first
-                                    -%}
-                                    <span lang="cn">{{ cn.major }}</span>
-                                    <h2 lang="cn">{{ cn.title }}</h2>
-                                </div>
-                            </div>
-                            <a href="{{ p.url }}"></a>
-                        </div>
-                        {%- endfor -%}
-                        <div class="card">
-                            <div class="card-content">
-                                <div>
-                                    <p>Some insformation</p>
-                                    <p>Some other information</p>
-                                    <p onclick="topFunction()">Back to top</p>
-                                </div>
-                            </div>
+            </div>
+            <div class="tab-cards" onmouseover="lock=true" onmouseout="lock=false">
+                {%- assign projects = site.projects | where: "category", t.heading-en -%}
+                {%- for p in projects -%}
+                <div class="card">
+                    <div class="card-content">
+                        <img loading="lazy" src="/projects/{{ p.number }}/thumbnail.jpg" alt="" class="cover">
+                        <div>
+                            <span lang="en">{{ p.major }}</span>
+                            <h2 lang="en">{{ p.title }}</h2>
+                            {%- assign cn = site.projects | where: "number", p.number | where: "lang", "cn" | first -%}
+                            <span lang="cn">{{ cn.major }}</span>
+                            <h2 lang="cn">{{ cn.title }}</h2>
                         </div>
                     </div>
-                    <div class="tail"></div>
+                    <a href="{{ p.url }}"></a>
+                    <!-- <a lang="cn" href="{{ cn.url }}"></a> -->
                 </div>
+                {%- endfor -%}
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <p>Some insformation</p>
+                            <p>Some other information</p>
+                            <p onclick="topFunction()">Back to top</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tail">
+                <p>Some insformation</p>
+                <p>Some other information</p>
             </div>
         </div>
         {%- endfor -%}
@@ -126,5 +166,3 @@ layout: default2
 
     <iframe class="motion" src="/intro/index.html"></iframe>
 </div>
-
-<script src="/assets/index.js"></script>

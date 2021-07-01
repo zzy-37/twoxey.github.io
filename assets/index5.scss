@@ -10,9 +10,13 @@ body {
   font-family: "Noto Sans SC", sans-serif;
 }
 
+p {
+  max-width: 50ch;
+}
+
 header ul {
   transition: transform 1s;
-  &.out {
+  &.in {
     transform: translateY(100vh);
   }
 }
@@ -83,21 +87,21 @@ header ul {
 
 main {
   --hi: calc(100vh - 4rem);
+  --offset: calc(48vw + 3.2rem);
   height: var(--hi);
-  position: relative;
 
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
 
-  transition: opacity 1.5s, transform 1s;
+  transition: opacity 0.5s;
 
   &.out {
-    transform: translateY(100%);
     opacity: 0;
   }
 
   > * {
     height: 100%;
+    position: relative;
 
     scroll-snap-align: start;
   }
@@ -106,8 +110,6 @@ main {
 .foreword {
   overflow: auto;
   margin: 0 1rem;
-  max-width: 900px;
-  position: relative;
 
   border-top: 1px solid rgb(240, 240, 240);
 
@@ -119,165 +121,99 @@ main {
     padding-bottom: 40%;
     img {
       display: block;
-      margin-left: auto;
       width: 40%;
+      margin-left: auto;
     }
     p {
       text-align: right;
-      // font-size: 0.75rem;
+      font-size: 0.75rem;
       margin: 0;
     }
-  }
-
-  @media (min-width: 600px) {
-    overflow: hidden;
-    > p {
-      max-width: 100ch;
-      columns: 2;
-    }
-
-    .signature {
-      padding: 0 0 1rem 1rem;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 50%;
-
-      // p {
-      //   font-size: 1rem;
-      // }
-    }
-  }
-}
-
-.tabs {
-  @media (max-width: 600px) {
-    position: relative;
-  }
-  @media (min-width: 600px) {
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
   }
 }
 
 .tab {
+  // border-top: 1px solid rgb(240, 240, 240);
   width: 100%;
+  height: 100%;
+  // height: 20%;
   padding: 0 1rem;
+  position: absolute;
+  top: 0;
+  // top: 100vh;
+  overflow: hidden;
   background: black;
-  flex: 1;
   transition: transform 1s, background 0.5s, color 0.5s;
+
+  // &:not(:first-child) {
+  //   margin-top: calc(var(--hi) * -0.8);
+  // }
+
+  @for $i from 2 through 5 {
+    &:nth-child(#{$i}) {
+      transform: translateY(calc(20% * (#{$i} - 1)));
+    }
+  }
+
+  &.in {
+    transform: translateY(100vh);
+  }
+
+  > img {
+    position: absolute;
+    height: 20vh;
+    top: 0;
+    right: 0;
+    transform-origin: 100% 0;
+    -webkit-transition: transform 0.5s;
+    transition: transform 0.5s;
+
+    &.imgin {
+      transform: translateX(100%);
+    }
+  }
 
   &-heading {
     padding: 1rem 0;
     border-top: 1px solid rgb(240, 240, 240);
-    position: relative;
-    // -webkit-transition: 0.5s;
-    // transition: 0.5s;
-
-    img {
-      position: absolute;
-      height: 20vh;
-      top: 0;
-      right: 0;
-      transform-origin: 100% 0;
-      -webkit-transition: transform 0.5s;
-      transition: transform 0.5s;
-
-      &.imgin {
-        transform: translateX(100%);
-      }
-    }
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     h2,
     p {
       margin: 0;
     }
-  }
 
-  &-content {
-    opacity: 0;
-  }
-
-  .cardwrapper {
-    padding-bottom: 100%;
-  }
-
-  @media (max-width: 600px) {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-
-    @for $i from 2 through 5 {
-      &:nth-child(#{$i}) {
-        transform: translateY(calc(20% * (#{$i} - 1)));
-      }
-    }
-
-    &.in {
-      transform: translateY(100vh);
-    }
-
-    &.select {
-      transform: translateY(0);
-      overflow: auto;
-      background: rgb(240, 240, 240);
-      color: black;
-
-      ~ .tab {
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-      }
-
-      .tab-heading img {
-        filter: invert(1);
-        -webkit-transform: scale(2);
-        transform: scale(2);
-        -webkit-transition: transform 0.8s 0.5s;
-        transition: transform 0.8s 0.5s;
-      }
-
-      .tab-content {
-        opacity: 1;
-        transition: opacity 0.5s 1s;
-      }
+    ~ * {
+      opacity: 0;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
     }
   }
 
-  @media (min-width: 600px) {
-    &:hover {
-      background: rgb(240, 240, 240);
-      color: black;
-      .tab-content {
-        opacity: 1;
-        visibility: visible;
-        transition: opacity 0.5s, visibility 0.5s;
-      }
-    }
+  &-cards {
+    margin-bottom: 100%;
+  }
+  &.select {
+    transform: translateY(0);
+    overflow: auto;
+    background: rgb(240, 240, 240);
+    color: black;
 
-    &-content {
-      background: inherit;
-      color: inherit;
-      position: absolute;
-      overflow: auto;
-      display: flex;
-      visibility: hidden;
-      top: 100%;
-      left: 30%;
-      right: 0;
-      height: var(--hi);
-      > p {
-        padding: 0 3rem;
-        max-width: 50ch;
-      }
-      * {
-        flex: 1;
-      }
+    > img {
+      filter: invert(1);
+      -webkit-transform: scale(2);
+      transform: scale(2);
+      -webkit-transition: transform 0.8s 0.5s;
+      transition: transform 0.8s 0.5s;
     }
-
-    &-cards {
-      min-width: 400px;
-      max-width: 500px;
+    ~ .tab {
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+    }
+    .tab-heading ~ * {
+      opacity: 1;
+      -webkit-transition: transform 0.5s 1s;
+      transition: opacity 0.5s 1s;
     }
   }
 }
@@ -336,6 +272,40 @@ main {
     ~ .card {
       -webkit-transform: translateY(85%);
       transform: translateY(85%);
+    }
+  }
+}
+
+.tail {
+  margin-top: -100%;
+  padding-top: 1rem;
+}
+
+@media (min-width: 600px) {
+  .foreword {
+    > p {
+      columns: 2;
+    }
+    .signature {
+      padding: 0 0 1rem 1rem;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  .tab-cards {
+    margin: 0;
+    display: flex;
+  }
+  .card {
+    width: 100%;
+    &:not(:first-child) {
+      margin: 0;
     }
   }
 }
