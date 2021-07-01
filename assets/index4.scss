@@ -10,6 +10,22 @@ body {
   font-family: "Noto Sans SC", sans-serif;
 }
 
+::-webkit-scrollbar {
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  width: 6px;
+
+  &-track {
+    background: transparent;
+  }
+  &-thumb {
+    background: rgb(240, 240, 240);
+    border-right: 5px solid black;
+  }
+}
+
 header ul {
   transition: transform 1s;
   &.out {
@@ -91,6 +107,13 @@ main {
 
   transition: opacity 1.5s, transform 1s;
 
+  @media (min-width:600px) {
+    background-image: url(/assets/bg2.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: bottom 0 right 0;
+  }
+
   &.out {
     transform: translateY(100%);
     opacity: 0;
@@ -108,8 +131,9 @@ main {
   margin: 0 1rem;
   max-width: 900px;
   position: relative;
-
-  border-top: 1px solid rgb(240, 240, 240);
+  @media (max-width: 600px) {
+    border-top: 1px solid rgb(240, 240, 240);
+  }
 
   img {
     filter: invert(1);
@@ -142,10 +166,6 @@ main {
       bottom: 0;
       right: 0;
       width: 50%;
-
-      // p {
-      //   font-size: 1rem;
-      // }
     }
   }
 }
@@ -170,10 +190,11 @@ main {
 
   &-heading {
     padding: 1rem 0;
-    border-top: 1px solid rgb(240, 240, 240);
     position: relative;
-    // -webkit-transition: 0.5s;
-    // transition: 0.5s;
+
+    @media (max-width: 600px) {
+      border-top: 1px solid rgb(240, 240, 240);
+    }
 
     img {
       position: absolute;
@@ -202,6 +223,10 @@ main {
     padding-bottom: 100%;
   }
 
+  &.in {
+    transform: translateY(100vh);
+  }
+
   @media (max-width: 600px) {
     height: 100%;
     position: absolute;
@@ -212,10 +237,6 @@ main {
       &:nth-child(#{$i}) {
         transform: translateY(calc(20% * (#{$i} - 1)));
       }
-    }
-
-    &.in {
-      transform: translateY(100vh);
     }
 
     &.select {
@@ -248,6 +269,9 @@ main {
     &:hover {
       background: rgb(240, 240, 240);
       color: black;
+      .tab-heading img {
+        filter: invert(1);
+      }
       .tab-content {
         opacity: 1;
         visibility: visible;
@@ -261,23 +285,27 @@ main {
       position: absolute;
       overflow: auto;
       display: flex;
+      justify-content: space-around;
       visibility: hidden;
       top: 100%;
       left: 30%;
       right: 0;
       height: var(--hi);
       > p {
-        padding: 0 3rem;
+        padding: 2rem;
         max-width: 50ch;
+        position: sticky;
+        top: 0;
+        bottom: 0;
       }
-      * {
-        flex: 1;
-      }
+    }
+
+    .cardwrapper {
+      flex-basis: 500px;
     }
 
     &-cards {
       min-width: 400px;
-      max-width: 500px;
     }
   }
 }
