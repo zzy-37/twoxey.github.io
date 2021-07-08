@@ -136,7 +136,7 @@ main {
     .name {
       font-size: 1.5rem;
     }
-    .position{
+    .position {
       font-size: 0.8rem;
     }
     img {
@@ -345,7 +345,7 @@ main {
     font-size: 1.2rem;
   }
   span {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid currentColor;
   }
 
   a {
@@ -370,5 +370,12 @@ main {
       -webkit-transform: translateY(85%);
       transform: translateY(85%);
     }
+  }
+
+  .btt {
+    padding: 1rem;
+    font-weight: bold;
+    background: black;
+    color: rgb(240, 240, 240);
   }
 }
