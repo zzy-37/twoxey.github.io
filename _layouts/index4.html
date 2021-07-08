@@ -5,8 +5,8 @@ layout: default2
 
 <main class="out">
     <div class="foreword">
-        <h2>序</h2>
-        <p>
+        <h2>序<br>FOREWORD</h2>
+        <p class="text">
             不管从哪个角度看，<br>
             2021年绝对是可以载入人类发展史册的一年。<br>
             <br>
@@ -51,8 +51,9 @@ layout: default2
         </p>
         <div class="signature">
             <img src="/assets/signature2.png" alt="">
-            <p>娄永琪 教授</p>
-            <p>同济大学 副校长 / 设计创意学院 院长</p>
+            <p class="name">娄永琪 教授<br>Prof.LOU Yongqi</p>
+            <p class="position">同济大学 副校长 / 设计创意学院 院长</p>
+            <p class="position">Vice President, Tongji University<br>Dean, College of Design and Innovation</p>
         </div>
     </div>
 
@@ -66,8 +67,9 @@ layout: default2
                 <p>{{ t.heading-en }}</p>
             </div>
             <div class="tab-content">
-                <p lang="cn">{{ t.cn }}</p>
-                <p lang="en">{{ t.en }}</p>
+                <div class="summary">
+                    {{- t.content -}}
+                </div>
                 <div class="cardwrapper">
                     <div class="tab-cards" onmouseover="lock=true" onmouseout="lock=false">
                         {%- assign projects = site.projects | where: "category", t.heading-en -%}

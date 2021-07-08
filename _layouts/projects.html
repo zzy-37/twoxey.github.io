@@ -30,16 +30,20 @@ layout: default2
         </section>
         <section class="profile">
             <img src="portrait.jpg" alt="">
-            <p lang="en"><span>{{ page.name }}</span><br>
-                <br>
-                E-mail：{{ page.email }}<br>
-                Tutor：{{ page.supervisor }}<br>
-            </p>
-            <p lang="cn"><span>{{ cn.name }}</span><br>
-                <br>
-                E-mail：{{ cn.email }}<br>
-                指导老师：{{ cn.supervisor }}<br>
-            </p>
+            <div lang="en">
+                <h2>{{ page.name }}</h2>
+                <p>
+                    E-mail：{{ page.email }}<br>
+                    Tutor：{{ page.supervisor }}<br>
+                </p>
+            </div>
+            <div lang="cn">
+                <h2>{{ cn.name }}</h2>
+                <p>
+                    E-mail：{{ cn.email }}<br>
+                    指导老师：{{ cn.supervisor }}<br>
+                </p>
+            </div>
         </section>
         <section lang="en" class="discription">
             {{- content | newline_to_br -}}

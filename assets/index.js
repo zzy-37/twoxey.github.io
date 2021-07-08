@@ -10,7 +10,9 @@ function topFunction() {
 
 function select(t) {
     if (!lock) {
-        t.classList.toggle('select');
+        const ele = document.querySelector(".select");
+        if (!ele) t.classList.add('select');
+        else ele.classList.remove('select');
         topFunction();
     }
 }

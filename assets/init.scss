@@ -13,7 +13,63 @@ body.cn :lang(en),
 body.en :lang(cn) {
   display: none;
 }
+body {
+  margin: 0;
+  // font-family: "Noto Sans SC", sans-serif;
+
+  @media (min-width: 600px) {
+    margin: 2rem;
+  }
+}
 
 img {
   max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  width: 6px;
+
+  &-track {
+    background: transparent;
+  }
+  &-thumb {
+    background: inherit;
+    border-left: 2px solid currentColor;
+  }
+}
+
+header {
+  z-index: 1;
+  background: inherit;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  top: 0;
+  padding: 0 1rem;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  > a {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: none;
+    display: inline;
+    margin-left: auto;
+  }
+
+  li {
+    display: inline;
+    font-size: 1.2rem;
+  }
 }
