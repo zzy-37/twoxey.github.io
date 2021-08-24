@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+:root {
+  --seam-color: white;
+}
+
 html,
 body {
   margin: 0;
@@ -121,7 +125,7 @@ h1,
 
 @media (max-width: 500px) {
   .mob {
-    border-top: 3px dashed white;
+    border-top: 5px dotted var(--seam-color);
     padding-top: 2rem;
     padding-left: 2rem;
     position: absolute;
@@ -137,8 +141,8 @@ h1,
     right: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 20px solid white;
-    border-right: 20px solid white;
+    border-left: 20px solid var(--seam-color);
+    border-right: 20px solid var(--seam-color);
   }
 
   h1 span {
@@ -164,15 +168,15 @@ h1,
     right: 20rem;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid white;
-    border-bottom: 20px solid white;
+    border-top: 20px solid var(--seam-color);
+    border-bottom: 20px solid var(--seam-color);
   }
   .mob::after {
     content: "";
     position: fixed;
     top: 0;
     bottom: 0;
-    right: 21.2rem;
-    border-left: 3px dashed white;
+    right: 21.1rem;
+    border-left: 5px dotted var(--seam-color);
   }
 }
