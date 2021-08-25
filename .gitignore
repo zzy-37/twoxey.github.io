@@ -1,1 +1,7 @@
-media/
+media
+.jekyll-clean
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor

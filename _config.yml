@@ -2,6 +2,7 @@ title: Stool Design
 description: D&I Industrial Design 2021
 
 theme: minima
+# theme: jekyll-theme-cayman
 
 collections:
   projects:
