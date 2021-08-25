@@ -1,0 +1,19 @@
+---
+layout: page
+---
+<link rel="stylesheet" href="/assets/project.css">
+
+<header class="project-header">
+    <img src="/media/thumbnail/{{ page.name }}.jpeg" alt="">
+    <p>title: {{ page.title }}</p>
+    <p>title-cn: {{ page.title-cn }}</p>
+    <p>author: {{ page.author }}</p>
+    <p>collection: {{ page.collection }}</p>
+    <p>name: {{ page.name }}</p>
+    <p>basename: {{ page.basename }}</p>
+    <p>dir: {{ page.dir }}</p>
+    <p>path: {{ page.path }}</p>
+    <p>relative_path: {{ page.relative_path }}</p>
+</header>
+
+{{ content }}

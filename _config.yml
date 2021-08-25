@@ -4,13 +4,8 @@ description: D&I Industrial Design 2021
 theme: minima
 # theme: jekyll-theme-cayman
 
-collections:
-  projects:
-    output: true
-
 defaults:
   - scope:
-      path: ""
-      type: "projects"
+      path: "projects"
     values:
-      layout: "page"
+      layout: "project"
