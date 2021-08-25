@@ -7,4 +7,6 @@ title: 板凳设计欣赏
 
 以下为历届的学生优秀设计选登，当然其中还是有很多不完善之处，希望通过这本书的传播，得到更多的建议反馈，汇集更多的真知灼见。
 
-![cover](media/image1.jpeg)
+![cover](/media/image1.jpeg)
+
+# [宜家黑客 2020](2020-ikea-hacker)
