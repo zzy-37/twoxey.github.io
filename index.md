@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: 板凳设计欣赏
 ---
 
