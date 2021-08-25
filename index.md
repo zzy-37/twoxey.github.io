@@ -9,4 +9,4 @@ title: 板凳设计欣赏
 
 ![cover](/media/image1.jpeg)
 
-# [宜家黑客 2020](2020-ikea-hacker)
+# [宜家黑客 2020](/projects/2020-ikea-hacker)

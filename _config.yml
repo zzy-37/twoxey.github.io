@@ -2,3 +2,14 @@ title: Stool Design
 description: D&I Industrial Design 2021
 
 theme: minima
+
+collections:
+  projects:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"

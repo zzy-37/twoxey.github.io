@@ -1,7 +1,6 @@
 ---
-layout: post
-title: FITOBY
 author: 蔡同
+title: FITOBY
 ---
 
 ![fitoby](/media/image2.jpeg)
