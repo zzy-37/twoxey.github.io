@@ -64,7 +64,7 @@ h1 {
 .dis {
   width: fit-content;
   text-align-last: justify;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid White;
   /* text-align: justify; */
 }
 .time,
@@ -121,7 +121,7 @@ h1,
 
 @media (max-width: 600px) {
   .mob {
-    border-top: 3px dotted white;
+    border-top: 3px dotted White;
     padding-top: 2rem;
     padding-left: 2rem;
     position: absolute;
@@ -137,8 +137,8 @@ h1,
     right: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 20px solid white;
-    border-right: 20px solid white;
+    border-left: 20px solid White;
+    border-right: 20px solid White;
   }
 
   h1 span {
@@ -164,8 +164,8 @@ h1,
     right: 20rem;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid white;
-    border-bottom: 20px solid white;
+    border-top: 20px solid White;
+    border-bottom: 20px solid White;
   }
   .mob::after {
     content: "";
@@ -173,6 +173,6 @@ h1,
     top: 0;
     bottom: 0;
     right: 21.2rem;
-    border-left: 3px dotted white;
+    border-left: 3px dotted White;
   }
 }
