@@ -1,9 +1,14 @@
 .index-intro {
-    padding-left: 10rem;
-    max-width: 55ch;
     text-indent: 4ch;
     margin-top: 3rem;
     margin-bottom: 5rem;
+}
+
+@media (min-width: 600px) {
+    .index-intro {
+        padding-left: 10rem;
+        max-width: 55ch;
+    }
 }
 
 .index-links a {
