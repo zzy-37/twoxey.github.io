@@ -1,0 +1,32 @@
+.index-intro {
+    padding-left: 10rem;
+    max-width: 55ch;
+    text-indent: 4ch;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.index-links a {
+    position: relative;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.index-links a:hover p {
+    opacity: 1;
+}
+
+.index-links img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    height: 5rem;
+}
+
+.index-links p {
+    opacity: 0;
+    background: rgba(255, 255, 255, .7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
